@@ -5,6 +5,7 @@ import BodyInput from "./BodyInput";
 import BreakingChangeDescriptionInput from "./BreakingChangeDescriptionInput";
 import BreakingChangeStyleSelector from "./BreakingChangeStyleSelector";
 import CommitTypeSelector from "./CommitTypeSelector";
+import CopyButton from "./CopyButton";
 import DescriptionInput from "./DescriptionInput";
 import FooterInput from "./FooterInput";
 import PreviewPanel from "./PreviewPanel";
@@ -62,6 +63,8 @@ export default function ConventionalCommitsComposer() {
 
         <div className="space-y-3">
           <PreviewPanel commitMessage={composer.commitPreview} />
+
+          <CopyButton text={composer.commitPreview} />
 
           <div>
             <p>References</p>
