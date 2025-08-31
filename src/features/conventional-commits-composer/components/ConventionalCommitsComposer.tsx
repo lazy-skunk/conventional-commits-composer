@@ -76,6 +76,36 @@ export default function ConventionalCommitsComposer() {
                   Conventional Commits 1.0.0
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-blue-500 underline"
+                >
+                  @commitlint/config-conventional
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-blue-500 underline"
+                >
+                  Angular convention
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://git-scm.com/docs/git-interpret-trailers"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-blue-500 underline"
+                >
+                  git trailer format
+                </a>
+              </li>
             </ul>
           </div>
         </div>
