@@ -60,8 +60,24 @@ export default function ConventionalCommitsComposer() {
           />
         </div>
 
-        <div>
+        <div className="space-y-3">
           <PreviewPanel commitMessage={composer.commitPreview} />
+
+          <div>
+            <p>References</p>
+            <ul className="list-disc list-inside">
+              <li>
+                <a
+                  href="https://www.conventionalcommits.org/en/v1.0.0/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-blue-500 underline"
+                >
+                  Conventional Commits 1.0.0
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
