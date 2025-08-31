@@ -26,9 +26,8 @@ export default function FooterRowItem({
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`border rounded bg-background text-foreground w-full min-w-0 h-9 px-2 ${
-          isTokenInvalid(row.token) ? "border-red-500" : ""
-        }`}
+        className={`border rounded w-full p-1 bg-background text-foreground
+          ${isTokenInvalid(row.token) ? "border-red-500" : ""}`}
       />
 
       <input
@@ -36,21 +35,21 @@ export default function FooterRowItem({
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="border rounded bg-background text-foreground w-full min-w-0 h-9 px-2"
+        className="border rounded w-full p-1 bg-background text-foreground"
       />
 
       <div className="flex gap-1">
         <button
           type="button"
           onClick={onAddRowAfter}
-          className="h-9 px-3 rounded bg-green-500 text-white hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-colors"
+          className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 text-center"
         >
           +
         </button>
         <button
           type="button"
           onClick={onRemoveRow}
-          className="h-9 px-3 rounded bg-red-500 text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 disabled:opacity-40 transition-colors"
+          className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-3 text-center"
           disabled={!canRemove}
         >
           ×
