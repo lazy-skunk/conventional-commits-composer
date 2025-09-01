@@ -26,8 +26,9 @@ export default function FooterRowItem({
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`border rounded w-full p-1 bg-background text-foreground
-          ${isTokenInvalid(row.token) ? "border-red-500" : ""}`}
+        className={`border rounded w-full p-1 ${
+          isTokenInvalid(row.token) ? "border-red-500" : ""
+        }`}
       />
 
       <input
@@ -35,21 +36,21 @@ export default function FooterRowItem({
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="border rounded w-full p-1 bg-background text-foreground"
+        className="border rounded w-full p-1"
       />
 
-      <div className="flex gap-1">
+      <div className="flex gap-1 items-center">
         <button
           type="button"
           onClick={onAddRowAfter}
-          className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 text-center"
+          className="border rounded-full h-7 w-7 hover:bg-foreground/10"
         >
           +
         </button>
         <button
           type="button"
           onClick={onRemoveRow}
-          className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-3 text-center"
+          className="border rounded-full h-7 w-7 hover:bg-foreground/10 disabled:opacity-50 disabled:hover:bg-transparent"
           disabled={!canRemove}
         >
           ×
