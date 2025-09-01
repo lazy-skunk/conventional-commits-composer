@@ -62,9 +62,9 @@ export default function ConventionalCommitsComposer() {
         </div>
 
         <div className="space-y-3">
-          <PreviewPanel commitMessage={composer.commitPreview} />
-
-          <CopyButton text={composer.commitPreview} />
+          <PreviewPanel commitMessage={composer.commitPreview}>
+            <CopyButton text={composer.commitPreview} />
+          </PreviewPanel>
 
           <div>
             <p>References</p>
