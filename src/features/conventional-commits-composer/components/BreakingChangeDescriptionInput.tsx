@@ -16,7 +16,7 @@ export default function BreakingChangeDescriptionInput({
       onChange={(event) =>
         onChangeBreakingChangeDescription(event.target.value)
       }
-      className="w-full border rounded mt-1 p-1 bg-background text-foreground"
+      className="w-full border rounded mt-1 p-1"
       rows={2}
       placeholder="Describe the breaking change"
       required

@@ -19,7 +19,7 @@ export default function DescriptionInput({
         id="description"
         value={description}
         onChange={(event) => onChangeDescription(event.target.value)}
-        className="border rounded w-full p-1 bg-background text-foreground"
+        className="border rounded w-full p-1"
         placeholder="Short summary of the code changes"
         required
       />

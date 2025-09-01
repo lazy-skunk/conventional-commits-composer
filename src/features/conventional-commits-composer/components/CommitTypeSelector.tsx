@@ -54,7 +54,7 @@ export default function CommitTypeSelector({
           onChange={(event) =>
             onChangeCommitType(event.target.value as OtherType)
           }
-          className="w-full border rounded my-1 p-1 bg-background text-foreground"
+          className="w-full border rounded my-1 p-1"
         >
           {OTHER_TYPE_OPTIONS.map(({ value, description }) => (
             <option key={value} value={value}>

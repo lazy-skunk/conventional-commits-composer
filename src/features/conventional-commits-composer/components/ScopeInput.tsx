@@ -16,7 +16,7 @@ export default function ScopeInput({ scope, onChangeScope }: Props) {
         id="scope"
         value={scope}
         onChange={(event) => onChangeScope(event.target.value)}
-        className="border rounded w-full p-1 bg-background text-foreground"
+        className="border rounded w-full p-1"
         placeholder="MUST consist of a noun describing a section of the codebase"
       />
     </div>
