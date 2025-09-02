@@ -10,9 +10,7 @@ export default function CopyButton({ text }: Props) {
       type="button"
       onClick={() => void copyToClipboard(text)}
       className={`
-        rounded-full bg-gradient-to-r from-pink-600 to-violet-600 inline-flex items-center gap-1 p-2 text-white transition-all
-        hover:scale-105 hover:from-pink-500 hover:to-violet-500
-        active:scale-95 active:from-pink-600/95 active:to-violet-600/95
+        rounded-full bg-gradient-to-r from-pink-500 to-violet-500 inline-flex items-center gap-1 p-2 text-white transition-all hover:scale-105 active:scale-95
       `}
     >
       <svg
