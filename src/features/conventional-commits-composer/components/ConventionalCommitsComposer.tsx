@@ -74,7 +74,7 @@ export default function ConventionalCommitsComposer() {
                   href="https://www.conventionalcommits.org/en/v1.0.0/"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-blue-500 underline"
+                  className="link"
                 >
                   Conventional Commits 1.0.0
                 </a>
@@ -84,7 +84,7 @@ export default function ConventionalCommitsComposer() {
                   href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-blue-500 underline"
+                  className="link"
                 >
                   @commitlint/config-conventional
                 </a>
@@ -94,7 +94,7 @@ export default function ConventionalCommitsComposer() {
                   href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-blue-500 underline"
+                  className="link"
                 >
                   Angular convention
                 </a>
@@ -104,7 +104,7 @@ export default function ConventionalCommitsComposer() {
                   href="https://git-scm.com/docs/git-interpret-trailers"
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-blue-500 underline"
+                  className="link"
                 >
                   git trailer format
                 </a>
