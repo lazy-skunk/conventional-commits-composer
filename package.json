@@ -1,5 +1,5 @@
 {
-  "name": "conventional-commits-generator",
+  "name": "conventional-commits-composer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
