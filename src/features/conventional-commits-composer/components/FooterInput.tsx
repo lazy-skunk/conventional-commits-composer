@@ -18,7 +18,7 @@ export default function FooterInput({ footer, onChangeFooter }: Props) {
     <fieldset>
       <legend className="font-bold">Footer (optional)</legend>
 
-      <div className="rounded bg-foreground/5 w-full p-2">
+      <div className="rounded bg-foreground/5 w-full p-2 space-y-2">
         {rows.map((row) => (
           <FooterRowItem
             key={row.id}
