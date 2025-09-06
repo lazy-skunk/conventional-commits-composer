@@ -53,10 +53,14 @@ export default function CommitTypeSelector({
           other
         </label>
 
-        {isOtherType(commitType) && (
+        <div
+          className={`overflow-hidden transition-all duration-200 ${
+            isOtherType(commitType) ? "max-h-10 mt-2" : "max-h-0"
+          }`}
+        >
           <select
             name="other_type"
-            value={commitType}
+            value={lastSelectedOtherType}
             onChange={(event) =>
               onChangeCommitType(event.target.value as OtherType)
             }
@@ -68,7 +72,7 @@ export default function CommitTypeSelector({
               </option>
             ))}
           </select>
-        )}
+        </div>
       </div>
     </fieldset>
   );
