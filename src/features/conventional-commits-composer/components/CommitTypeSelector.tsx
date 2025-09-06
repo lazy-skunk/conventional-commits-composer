@@ -25,10 +25,14 @@ export default function CommitTypeSelector({
 
       <div className="rounded bg-foreground/5 p-2">
         {PRIMARY_TYPE_OPTIONS.map(({ value, description }) => (
-          <label key={value} className="flex gap-2">
+          <label
+            key={value}
+            className="flex gap-2 rounded cursor-pointer transition hover:bg-foreground/10"
+          >
             <input
               type="radio"
               name="commit_type"
+              className="accent-brand-color"
               value={value}
               onChange={() => onChangeCommitType(value)}
               checked={commitType === value}
@@ -37,10 +41,11 @@ export default function CommitTypeSelector({
           </label>
         ))}
 
-        <label className="flex gap-2">
+        <label className="flex gap-2 rounded cursor-pointer transition hover:bg-foreground/10">
           <input
             type="radio"
             name="commit_type"
+            className="accent-brand-color"
             value="other"
             onChange={() => onChangeCommitType(lastSelectedOtherType)}
             checked={isOtherType(commitType)}
