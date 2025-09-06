@@ -10,12 +10,11 @@ export default function CopyButton({ text }: Props) {
       type="button"
       onClick={() => void copyToClipboard(text)}
       className={`
-        inline-flex items-center gap-1 p-2
-        rounded-full
-        text-white
-        bg-linear-45 from-custom-pink to-custom-orange
+        inline-flex items-center gap-1 px-3 py-1.5
+        rounded-full border
+        text-foreground border-foreground/25
         transition-all
-        hover:scale-105
+        hover:text-white hover:border-transparent hover:bg-linear-45 hover:from-custom-pink hover:to-custom-orange
         active:scale-95
       `}
     >
