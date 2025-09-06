@@ -13,9 +13,10 @@ export default function CopyButton({ text }: Props) {
         inline-flex items-center gap-1 px-3 py-1.5
         rounded-full border
         text-foreground border-foreground/25
-        transition-all
+        transition
         hover:text-white hover:border-transparent hover:bg-linear-45 hover:from-custom-pink hover:to-custom-orange
         active:scale-95
+        cursor-pointer
       `}
     >
       <svg
