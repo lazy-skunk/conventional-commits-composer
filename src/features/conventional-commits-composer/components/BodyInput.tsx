@@ -8,7 +8,7 @@ type Props = {
 export default function BodyInput({ body, onChangeBody }: Props) {
   return (
     <div>
-      <label htmlFor="body" className="block font-bold">
+      <label htmlFor="body" className="font-bold">
         Body (optional)
       </label>
 
@@ -16,7 +16,7 @@ export default function BodyInput({ body, onChangeBody }: Props) {
         id="body"
         value={body}
         onChange={(event) => onChangeBody(event.target.value)}
-        className="border rounded w-full p-1"
+        className="rounded bg-foreground/5 w-full p-2"
         rows={3}
         placeholder="Additional contextual information about the code changes"
       />

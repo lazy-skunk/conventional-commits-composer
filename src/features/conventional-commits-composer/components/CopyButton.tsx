@@ -10,7 +10,7 @@ export default function CopyButton({ text }: Props) {
       type="button"
       onClick={() => void copyToClipboard(text)}
       className={`
-        inline-flex items-center gap-1 p-1
+        inline-flex items-center gap-1 p-2
         rounded-full
         text-white
         bg-linear-45 from-custom-pink to-custom-orange

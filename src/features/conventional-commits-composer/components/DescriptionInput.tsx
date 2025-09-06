@@ -11,7 +11,7 @@ export default function DescriptionInput({
 }: Props) {
   return (
     <div>
-      <label htmlFor="description" className="block font-bold">
+      <label htmlFor="description" className="font-bold">
         Description
       </label>
 
@@ -19,7 +19,7 @@ export default function DescriptionInput({
         id="description"
         value={description}
         onChange={(event) => onChangeDescription(event.target.value)}
-        className="border rounded w-full p-1"
+        className="rounded bg-foreground/5 w-full p-2"
         placeholder="Short summary of the code changes"
         required
       />

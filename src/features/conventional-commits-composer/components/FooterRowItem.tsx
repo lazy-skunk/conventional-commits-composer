@@ -18,7 +18,7 @@ export default function FooterRowItem({
 }: Props) {
   return (
     <div
-      className="grid gap-2 pb-1"
+      className="grid gap-2"
       style={{ gridTemplateColumns: "1fr 1.618fr auto" }}
     >
       <input
@@ -26,7 +26,7 @@ export default function FooterRowItem({
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`border rounded w-full p-1 ${
+        className={`rounded bg-background text-foreground w-full p-2 ${
           isTokenInvalid(row.token) ? "border-red-500" : ""
         }`}
       />
@@ -36,21 +36,21 @@ export default function FooterRowItem({
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="border rounded w-full p-1"
+        className="rounded bg-background text-foreground w-full p-2"
       />
 
       <div className="flex gap-1 items-center">
         <button
           type="button"
           onClick={onAddRowAfter}
-          className="border rounded-full h-7 w-7 hover:bg-foreground/10"
+          className="rounded-full h-7 w-7 hover:bg-green-500/50"
         >
           +
         </button>
         <button
           type="button"
           onClick={onRemoveRow}
-          className="border rounded-full h-7 w-7 hover:bg-foreground/10 disabled:opacity-50 disabled:hover:bg-transparent"
+          className="rounded-full h-7 w-7 hover:bg-red-500/50 disabled:opacity-50 disabled:hover:bg-transparent"
           disabled={!canRemove}
         >
           ×

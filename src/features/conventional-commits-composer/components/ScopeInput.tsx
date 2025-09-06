@@ -8,7 +8,7 @@ type Props = {
 export default function ScopeInput({ scope, onChangeScope }: Props) {
   return (
     <div>
-      <label htmlFor="scope" className="block font-bold">
+      <label htmlFor="scope" className="font-bold">
         Scope (optional)
       </label>
 
@@ -16,7 +16,7 @@ export default function ScopeInput({ scope, onChangeScope }: Props) {
         id="scope"
         value={scope}
         onChange={(event) => onChangeScope(event.target.value)}
-        className="border rounded w-full p-1"
+        className="rounded bg-foreground/5 w-full p-2"
         placeholder="MUST consist of a noun describing a section of the codebase"
       />
     </div>

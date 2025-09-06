@@ -15,10 +15,10 @@ export default function FooterInput({ footer, onChangeFooter }: Props) {
   );
 
   return (
-    <fieldset className="border rounded px-2 pb-1">
-      <legend className="font-bold px-1">Footer (optional)</legend>
+    <fieldset>
+      <legend className="font-bold">Footer (optional)</legend>
 
-      <div className="space-y-1">
+      <div className="rounded bg-foreground/5 w-full p-2">
         {rows.map((row) => (
           <FooterRowItem
             key={row.id}
