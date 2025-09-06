@@ -43,14 +43,14 @@ export default function FooterRowItem({
         <button
           type="button"
           onClick={onAddRowAfter}
-          className="rounded-full h-7 w-7 hover:bg-green-500/50"
+          className="rounded-full h-7 w-7 hover:bg-green-500/50 active:scale-95"
         >
           +
         </button>
         <button
           type="button"
           onClick={onRemoveRow}
-          className="rounded-full h-7 w-7 hover:bg-red-500/50 disabled:opacity-50 disabled:hover:bg-transparent"
+          className="rounded-full h-7 w-7 hover:bg-red-500/50 active:scale-95 disabled:opacity-50 disabled:hover:bg-transparent"
           disabled={!canRemove}
         >
           ×
