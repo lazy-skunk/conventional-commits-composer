@@ -43,16 +43,22 @@ export default function ConventionalCommitsComposer() {
             breakingChangeStyle={composer.breakingChangeStyle}
             onChangeBreakingChangeStyle={composer.setBreakingChangeStyle}
           >
-            {isBreakingChangeDescriptionRequired(
-              composer.breakingChangeStyle
-            ) && (
+            <div
+              className={`overflow-hidden transition-all duration-200 ${
+                isBreakingChangeDescriptionRequired(
+                  composer.breakingChangeStyle
+                )
+                  ? "max-h-20 mt-2"
+                  : "max-h-0"
+              }`}
+            >
               <BreakingChangeDescriptionInput
                 breakingChangeDescription={composer.breakingChangeDescription}
                 onChangeBreakingChangeDescription={
                   composer.setBreakingChangeDescription
                 }
               />
-            )}
+            </div>
           </BreakingChangeStyleSelector>
 
           <FooterInput
