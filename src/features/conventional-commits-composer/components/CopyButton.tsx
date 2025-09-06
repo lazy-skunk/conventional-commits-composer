@@ -19,7 +19,7 @@ export default function CopyButton({ text }: Props) {
         fill="none"
         stroke="currentColor"
         strokeWidth={1.5}
-        className="h-4 w-4"
+        className="h-5 w-5"
         aria-hidden
         focusable="false"
       >
