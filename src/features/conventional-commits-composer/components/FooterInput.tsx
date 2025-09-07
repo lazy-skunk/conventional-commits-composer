@@ -19,11 +19,12 @@ export default function FooterInput({ footer, onChangeFooter }: Props) {
       <legend className="font-bold">Footer (optional)</legend>
 
       <div className="rounded bg-foreground/5 w-full p-2 space-y-2">
-        {rows.map((row) => (
+        {rows.map((row, index) => (
           <FooterRowItem
             key={row.id}
             row={row}
             canRemove={rows.length > 1}
+            isEnterAnimationDisabled={index === 0}
             onChangeRow={(rowUpdate) => updateRow(row.id, rowUpdate)}
             onAddRowAfter={() => addRowAfter(row.id)}
             onRemoveRow={() => removeRow(row.id)}
