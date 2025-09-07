@@ -1,10 +1,10 @@
+import { joinNonEmpty, normalize } from "@/lib/text";
 import type { BreakingChangeStyle } from "./breakingChange";
 import {
   isBreakingChangeDescriptionRequired,
   isBreakingChangeHeaderMarkRequired,
 } from "./breakingChange";
 import type { CommitType } from "./commitType";
-import { joinNonEmpty, normalize } from "@/lib/text";
 
 type ComposeConventionalCommitParams = {
   commitType: CommitType;
@@ -94,4 +94,3 @@ export function composeConventionalCommit({
 
   return joinNonEmpty([commitHeader, normalizedBody, commitFooter], "\n\n");
 }
-
