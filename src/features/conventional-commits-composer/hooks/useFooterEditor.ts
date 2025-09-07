@@ -40,10 +40,12 @@ export function useFooterEditor(
 
   useEffect(() => {
     if (initialFooterString === lastEmittedFooterStringRef.current) return;
-    const parsedFooterRows = parseFooters(initialFooterString).map((footerEntry) => ({
-      id: generateId(),
-      ...footerEntry,
-    }));
+    const parsedFooterRows = parseFooters(initialFooterString).map(
+      (footerEntry) => ({
+        id: generateId(),
+        ...footerEntry,
+      })
+    );
 
     setRows((previousRows) => {
       const previousRowsContent = previousRows.map(({ token, value }) => ({
@@ -54,7 +56,8 @@ export function useFooterEditor(
         token,
         value,
       }));
-      const isSameLength = previousRowsContent.length === nextRowsContent.length;
+      const isSameLength =
+        previousRowsContent.length === nextRowsContent.length;
       const isSameContent =
         isSameLength &&
         previousRowsContent.every(
@@ -83,11 +86,10 @@ export function useFooterEditor(
     });
 
   const removeRow = (rowId: string) =>
-    setRows((previousRows) =>
-      previousRows.length > 1
-        ? previousRows.filter((row) => row.id !== rowId)
-        : previousRows
-    );
+    setRows((previousRows) => {
+      if (previousRows.length <= 1) return previousRows;
+      return previousRows.filter((row) => row.id !== rowId);
+    });
 
   const updateRow = (rowId: string, updatedFields: Partial<FooterEditorRow>) =>
     setRows((previousRows) =>
