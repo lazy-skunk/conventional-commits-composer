@@ -5,10 +5,7 @@ type Props = {
   onChangeDescription: (description: string) => void;
 };
 
-export default function DescriptionInput({
-  description,
-  onChangeDescription,
-}: Props) {
+export default function DescriptionInput({ description, onChangeDescription }: Props) {
   return (
     <div>
       <label htmlFor="description" className="font-bold">

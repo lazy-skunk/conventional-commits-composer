@@ -35,8 +35,7 @@ export default function FooterRowItem({
 
   const baseClass = "grid gap-2 transition duration-200";
 
-  const isInitialEnterFrame =
-    !isEnterAnimationDisabled && !isRemoving && !hasMounted;
+  const isInitialEnterFrame = !isEnterAnimationDisabled && !isRemoving && !hasMounted;
   let motionClass = "";
   if (isRemoving) {
     motionClass = "opacity-0 -translate-y-1";

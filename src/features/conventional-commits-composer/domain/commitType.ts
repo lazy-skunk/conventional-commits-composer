@@ -20,8 +20,7 @@ export const OTHER_TYPE_OPTIONS = [
   },
   {
     value: "build",
-    description:
-      "Changes that affect the build system or external dependencies",
+    description: "Changes that affect the build system or external dependencies",
   },
   {
     value: "ci",
