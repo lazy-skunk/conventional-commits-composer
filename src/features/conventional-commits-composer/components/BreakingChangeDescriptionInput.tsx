@@ -13,9 +13,7 @@ export default function BreakingChangeDescriptionInput({
     <textarea
       value={breakingChangeDescription}
       name="breaking_change_description"
-      onChange={(event) =>
-        onChangeBreakingChangeDescription(event.target.value)
-      }
+      onChange={(event) => onChangeBreakingChangeDescription(event.target.value)}
       className="rounded bg-background text-foreground w-full p-2"
       rows={2}
       placeholder="Describe the breaking change"

@@ -16,9 +16,7 @@ export default function ConventionalCommitsComposer() {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <h1 className="text-xl font-black text-center my-4">
-        Conventional Commits Composer
-      </h1>
+      <h1 className="text-xl font-black text-center my-4">Conventional Commits Composer</h1>
 
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-4">
@@ -27,10 +25,7 @@ export default function ConventionalCommitsComposer() {
             onChangeCommitType={composer.setCommitType}
           />
 
-          <ScopeInput
-            scope={composer.scope}
-            onChangeScope={composer.setScope}
-          />
+          <ScopeInput scope={composer.scope} onChangeScope={composer.setScope} />
 
           <DescriptionInput
             description={composer.description}
@@ -45,26 +40,19 @@ export default function ConventionalCommitsComposer() {
           >
             <div
               className={`overflow-hidden transition-all duration-200 ${
-                isBreakingChangeDescriptionRequired(
-                  composer.breakingChangeStyle
-                )
+                isBreakingChangeDescriptionRequired(composer.breakingChangeStyle)
                   ? "max-h-20 mt-2"
                   : "max-h-0"
               }`}
             >
               <BreakingChangeDescriptionInput
                 breakingChangeDescription={composer.breakingChangeDescription}
-                onChangeBreakingChangeDescription={
-                  composer.setBreakingChangeDescription
-                }
+                onChangeBreakingChangeDescription={composer.setBreakingChangeDescription}
               />
             </div>
           </BreakingChangeStyleSelector>
 
-          <FooterInput
-            footer={composer.footer}
-            onChangeFooter={composer.setFooter}
-          />
+          <FooterInput footer={composer.footer} onChangeFooter={composer.setFooter} />
         </div>
 
         <div className="space-y-4">

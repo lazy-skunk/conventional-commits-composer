@@ -9,10 +9,7 @@ type Props = {
 };
 
 export default function FooterInput({ footer, onChangeFooter }: Props) {
-  const { rows, addRowAfter, removeRow, updateRow } = useFooterEditor(
-    footer,
-    onChangeFooter
-  );
+  const { rows, addRowAfter, removeRow, updateRow } = useFooterEditor(footer, onChangeFooter);
 
   return (
     <fieldset>

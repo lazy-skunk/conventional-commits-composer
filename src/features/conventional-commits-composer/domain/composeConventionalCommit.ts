@@ -16,36 +16,25 @@ type ComposeConventionalCommitParams = {
   footer?: string;
 };
 
-function formatCommitTypeToken(
-  commitType: CommitType,
-  breakingChangeStyle: BreakingChangeStyle
-) {
-  return isBreakingChangeHeaderMarkRequired(breakingChangeStyle)
-    ? `${commitType}!`
-    : commitType;
+function formatCommitTypeToken(commitType: CommitType, breakingChangeStyle: BreakingChangeStyle) {
+  return isBreakingChangeHeaderMarkRequired(breakingChangeStyle) ? `${commitType}!` : commitType;
 }
 
 function formatCommitHeader(
   commitType: CommitType,
   breakingChangeStyle: BreakingChangeStyle,
   scope: string,
-  description: string
+  description: string,
 ): string {
-  const commitTypeToken = formatCommitTypeToken(
-    commitType,
-    breakingChangeStyle
-  );
+  const commitTypeToken = formatCommitTypeToken(commitType, breakingChangeStyle);
   return `${commitTypeToken}${scope ? `(${scope})` : ""}: ${description}`;
 }
 
 function formatBreakingChangeFooter(
   breakingChangeStyle: BreakingChangeStyle,
-  breakingChangeDescription: string
+  breakingChangeDescription: string,
 ) {
-  if (
-    isBreakingChangeDescriptionRequired(breakingChangeStyle) &&
-    breakingChangeDescription
-  ) {
+  if (isBreakingChangeDescriptionRequired(breakingChangeStyle) && breakingChangeDescription) {
     return `BREAKING-CHANGE: ${breakingChangeDescription}`;
   }
   return "";
@@ -54,11 +43,11 @@ function formatBreakingChangeFooter(
 function formatFooterSection(
   breakingChangeStyle: BreakingChangeStyle,
   breakingChangeDescription: string,
-  footer: string
+  footer: string,
 ): string {
   const breakingChangeFooter = formatBreakingChangeFooter(
     breakingChangeStyle,
-    breakingChangeDescription
+    breakingChangeDescription,
   );
   return joinNonEmpty([breakingChangeFooter, footer], "\n");
 }
@@ -75,21 +64,19 @@ export function composeConventionalCommit({
   const normalizedScope = normalize(scope);
   const normalizedDescription = normalize(description);
   const normalizedBody = normalize(body);
-  const normalizedBreakingChangeDescription = normalize(
-    breakingChangeDescription
-  );
+  const normalizedBreakingChangeDescription = normalize(breakingChangeDescription);
   const normalizedFooter = normalize(footer);
 
   const commitHeader = formatCommitHeader(
     commitType,
     breakingChangeStyle,
     normalizedScope,
-    normalizedDescription
+    normalizedDescription,
   );
   const commitFooter = formatFooterSection(
     breakingChangeStyle,
     normalizedBreakingChangeDescription,
-    normalizedFooter
+    normalizedFooter,
   );
 
   return joinNonEmpty([commitHeader, normalizedBody, commitFooter], "\n\n");

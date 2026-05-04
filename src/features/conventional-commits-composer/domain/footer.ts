@@ -20,8 +20,7 @@ export function parseFooters(input: string): FooterEntry[] {
 
   return input.split(/\r?\n/).map((line) => {
     const delimiterIndex = line.indexOf(": ");
-    const tokenPart =
-      delimiterIndex >= 0 ? line.slice(0, delimiterIndex) : line;
+    const tokenPart = delimiterIndex >= 0 ? line.slice(0, delimiterIndex) : line;
     const valuePart = delimiterIndex >= 0 ? line.slice(delimiterIndex + 2) : "";
     return { token: normalize(tokenPart), value: normalize(valuePart) };
   });
@@ -40,7 +39,5 @@ export function serializeFooters(rows: FooterEntry[]): string {
 
   if (!validRows.length) return "";
 
-  return validRows
-    .map((row) => `${normalize(row.token)}: ${normalize(row.value)}`)
-    .join("\n");
+  return validRows.map((row) => `${normalize(row.token)}: ${normalize(row.value)}`).join("\n");
 }

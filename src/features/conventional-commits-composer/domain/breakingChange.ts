@@ -5,13 +5,10 @@ export const BREAKING_CHANGE_OPTIONS = [
   { value: "both", description: '"!" and "BREAKING-CHANGE:"' },
 ] as const;
 
-export type BreakingChangeStyle =
-  (typeof BREAKING_CHANGE_OPTIONS)[number]["value"];
+export type BreakingChangeStyle = (typeof BREAKING_CHANGE_OPTIONS)[number]["value"];
 
-export const isBreakingChangeDescriptionRequired = (
-  style: BreakingChangeStyle
-) => style === "footer" || style === "both";
+export const isBreakingChangeDescriptionRequired = (style: BreakingChangeStyle) =>
+  style === "footer" || style === "both";
 
-export const isBreakingChangeHeaderMarkRequired = (
-  style: BreakingChangeStyle
-) => style === "header" || style === "both";
+export const isBreakingChangeHeaderMarkRequired = (style: BreakingChangeStyle) =>
+  style === "header" || style === "both";

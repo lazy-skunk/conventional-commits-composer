@@ -10,7 +10,7 @@ function createEmptyFooterRow(): FooterEditorRow {
 
 export function useFooterEditor(
   initialFooterString: string,
-  onChangeFooterString: (footerString: string) => void
+  onChangeFooterString: (footerString: string) => void,
 ) {
   const initialRows = useMemo(
     () =>
@@ -18,16 +18,16 @@ export function useFooterEditor(
         id: generateId(),
         ...footerEntry,
       })),
-    [initialFooterString]
+    [initialFooterString],
   );
 
   const [rows, setRows] = useState<FooterEditorRow[]>(
-    initialRows.length ? initialRows : [createEmptyFooterRow()]
+    initialRows.length ? initialRows : [createEmptyFooterRow()],
   );
 
   const footerString = useMemo(
     () => serializeFooters(rows.map(({ token, value }) => ({ token, value }))),
-    [rows]
+    [rows],
   );
 
   const lastEmittedFooterStringRef = useRef<string>(initialFooterString);
@@ -40,12 +40,10 @@ export function useFooterEditor(
 
   useEffect(() => {
     if (initialFooterString === lastEmittedFooterStringRef.current) return;
-    const parsedFooterRows = parseFooters(initialFooterString).map(
-      (footerEntry) => ({
-        id: generateId(),
-        ...footerEntry,
-      })
-    );
+    const parsedFooterRows = parseFooters(initialFooterString).map((footerEntry) => ({
+      id: generateId(),
+      ...footerEntry,
+    }));
 
     setRows((previousRows) => {
       const previousRowsContent = previousRows.map(({ token, value }) => ({
@@ -56,19 +54,16 @@ export function useFooterEditor(
         token,
         value,
       }));
-      const isSameLength =
-        previousRowsContent.length === nextRowsContent.length;
+      const isSameLength = previousRowsContent.length === nextRowsContent.length;
       const isSameContent =
         isSameLength &&
         previousRowsContent.every(
           (row, index) =>
             row.token === nextRowsContent[index]?.token &&
-            row.value === nextRowsContent[index]?.value
+            row.value === nextRowsContent[index]?.value,
         );
       if (isSameContent) return previousRows;
-      return parsedFooterRows.length
-        ? parsedFooterRows
-        : [createEmptyFooterRow()];
+      return parsedFooterRows.length ? parsedFooterRows : [createEmptyFooterRow()];
     });
   }, [initialFooterString]);
 
@@ -77,9 +72,7 @@ export function useFooterEditor(
       const nextRows = [...previousRows];
       if (!referenceRowId) nextRows.push(createEmptyFooterRow());
       else {
-        const targetIndex = nextRows.findIndex(
-          (row) => row.id === referenceRowId
-        );
+        const targetIndex = nextRows.findIndex((row) => row.id === referenceRowId);
         nextRows.splice(targetIndex + 1, 0, createEmptyFooterRow());
       }
       return nextRows;
@@ -93,9 +86,7 @@ export function useFooterEditor(
 
   const updateRow = (rowId: string, updatedFields: Partial<FooterEditorRow>) =>
     setRows((previousRows) =>
-      previousRows.map((row) =>
-        row.id === rowId ? { ...row, ...updatedFields } : row
-      )
+      previousRows.map((row) => (row.id === rowId ? { ...row, ...updatedFields } : row)),
     );
 
   return {

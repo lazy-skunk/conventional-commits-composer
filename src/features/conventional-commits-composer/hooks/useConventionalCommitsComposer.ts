@@ -7,10 +7,8 @@ export function useConventionalCommitsComposer() {
   const [scope, setScope] = useState("");
   const [description, setDescription] = useState("");
   const [body, setBody] = useState("");
-  const [breakingChangeStyle, setBreakingChangeStyle] =
-    useState<BreakingChangeStyle>("none");
-  const [breakingChangeDescription, setBreakingChangeDescription] =
-    useState("");
+  const [breakingChangeStyle, setBreakingChangeStyle] = useState<BreakingChangeStyle>("none");
+  const [breakingChangeDescription, setBreakingChangeDescription] = useState("");
   const [footer, setFooter] = useState("");
 
   const commitPreview = useMemo(() => {
