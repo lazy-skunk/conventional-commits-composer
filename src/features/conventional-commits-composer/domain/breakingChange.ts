@@ -9,9 +9,9 @@ export type BreakingChangeStyle =
   (typeof BREAKING_CHANGE_OPTIONS)[number]["value"];
 
 export const isBreakingChangeDescriptionRequired = (
-  style: BreakingChangeStyle
+  style: BreakingChangeStyle,
 ) => style === "footer" || style === "both";
 
 export const isBreakingChangeHeaderMarkRequired = (
-  style: BreakingChangeStyle
+  style: BreakingChangeStyle,
 ) => style === "header" || style === "both";

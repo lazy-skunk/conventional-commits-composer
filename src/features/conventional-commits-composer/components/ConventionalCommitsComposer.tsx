@@ -46,7 +46,7 @@ export default function ConventionalCommitsComposer() {
             <div
               className={`overflow-hidden transition-all duration-200 ${
                 isBreakingChangeDescriptionRequired(
-                  composer.breakingChangeStyle
+                  composer.breakingChangeStyle,
                 )
                   ? "max-h-20 mt-2"
                   : "max-h-0"
