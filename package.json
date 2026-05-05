@@ -7,8 +7,9 @@
     "build": "next build --turbopack",
     "start": "next start",
     "test": "jest --coverage",
-    "lint": "eslint",
-    "format": "prettier --write ."
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "next": "^16.2.4",
