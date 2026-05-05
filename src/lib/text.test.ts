@@ -11,14 +11,17 @@ describe("normalize", () => {
 
 describe("joinNonEmpty", () => {
   it("joins parts", () => {
-    expect(
-      joinNonEmpty(["feat(ui): add button", "Refs: #42"], "\n\n"),
-    ).toBe("feat(ui): add button\n\nRefs: #42");
+    expect(joinNonEmpty(["feat(ui): add button", "Refs: #42"], "\n\n")).toBe(
+      "feat(ui): add button\n\nRefs: #42",
+    );
   });
 
   it("skips empty parts", () => {
     expect(
-      joinNonEmpty(["feat(ui): add button", undefined, "", "Refs: #42"], "\n\n"),
+      joinNonEmpty(
+        ["feat(ui): add button", undefined, "", "Refs: #42"],
+        "\n\n",
+      ),
     ).toBe("feat(ui): add button\n\nRefs: #42");
   });
 });
