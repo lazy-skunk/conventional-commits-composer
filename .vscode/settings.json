@@ -3,5 +3,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "never",
     "source.organizeImports": "explicit"
-  },
+  }
 }
