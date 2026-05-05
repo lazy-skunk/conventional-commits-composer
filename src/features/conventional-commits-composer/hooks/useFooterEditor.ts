@@ -10,7 +10,7 @@ function createEmptyFooterRow(): FooterEditorRow {
 
 export function useFooterEditor(
   initialFooterString: string,
-  onChangeFooterString: (footerString: string) => void
+  onChangeFooterString: (footerString: string) => void,
 ) {
   const initialRows = useMemo(
     () =>
@@ -18,16 +18,16 @@ export function useFooterEditor(
         id: generateId(),
         ...footerEntry,
       })),
-    [initialFooterString]
+    [initialFooterString],
   );
 
   const [rows, setRows] = useState<FooterEditorRow[]>(
-    initialRows.length ? initialRows : [createEmptyFooterRow()]
+    initialRows.length ? initialRows : [createEmptyFooterRow()],
   );
 
   const footerString = useMemo(
     () => serializeFooters(rows.map(({ token, value }) => ({ token, value }))),
-    [rows]
+    [rows],
   );
 
   const lastEmittedFooterStringRef = useRef<string>(initialFooterString);
@@ -44,7 +44,7 @@ export function useFooterEditor(
       (footerEntry) => ({
         id: generateId(),
         ...footerEntry,
-      })
+      }),
     );
 
     setRows((previousRows) => {
@@ -63,7 +63,7 @@ export function useFooterEditor(
         previousRowsContent.every(
           (row, index) =>
             row.token === nextRowsContent[index]?.token &&
-            row.value === nextRowsContent[index]?.value
+            row.value === nextRowsContent[index]?.value,
         );
       if (isSameContent) return previousRows;
       return parsedFooterRows.length
@@ -78,7 +78,7 @@ export function useFooterEditor(
       if (!referenceRowId) nextRows.push(createEmptyFooterRow());
       else {
         const targetIndex = nextRows.findIndex(
-          (row) => row.id === referenceRowId
+          (row) => row.id === referenceRowId,
         );
         nextRows.splice(targetIndex + 1, 0, createEmptyFooterRow());
       }
@@ -94,8 +94,8 @@ export function useFooterEditor(
   const updateRow = (rowId: string, updatedFields: Partial<FooterEditorRow>) =>
     setRows((previousRows) =>
       previousRows.map((row) =>
-        row.id === rowId ? { ...row, ...updatedFields } : row
-      )
+        row.id === rowId ? { ...row, ...updatedFields } : row,
+      ),
     );
 
   return {

@@ -18,7 +18,7 @@ type ComposeConventionalCommitParams = {
 
 function formatCommitTypeToken(
   commitType: CommitType,
-  breakingChangeStyle: BreakingChangeStyle
+  breakingChangeStyle: BreakingChangeStyle,
 ) {
   return isBreakingChangeHeaderMarkRequired(breakingChangeStyle)
     ? `${commitType}!`
@@ -29,18 +29,18 @@ function formatCommitHeader(
   commitType: CommitType,
   breakingChangeStyle: BreakingChangeStyle,
   scope: string,
-  description: string
+  description: string,
 ): string {
   const commitTypeToken = formatCommitTypeToken(
     commitType,
-    breakingChangeStyle
+    breakingChangeStyle,
   );
   return `${commitTypeToken}${scope ? `(${scope})` : ""}: ${description}`;
 }
 
 function formatBreakingChangeFooter(
   breakingChangeStyle: BreakingChangeStyle,
-  breakingChangeDescription: string
+  breakingChangeDescription: string,
 ) {
   if (
     isBreakingChangeDescriptionRequired(breakingChangeStyle) &&
@@ -54,11 +54,11 @@ function formatBreakingChangeFooter(
 function formatFooterSection(
   breakingChangeStyle: BreakingChangeStyle,
   breakingChangeDescription: string,
-  footer: string
+  footer: string,
 ): string {
   const breakingChangeFooter = formatBreakingChangeFooter(
     breakingChangeStyle,
-    breakingChangeDescription
+    breakingChangeDescription,
   );
   return joinNonEmpty([breakingChangeFooter, footer], "\n");
 }
@@ -76,7 +76,7 @@ export function composeConventionalCommit({
   const normalizedDescription = normalize(description);
   const normalizedBody = normalize(body);
   const normalizedBreakingChangeDescription = normalize(
-    breakingChangeDescription
+    breakingChangeDescription,
   );
   const normalizedFooter = normalize(footer);
 
@@ -84,12 +84,12 @@ export function composeConventionalCommit({
     commitType,
     breakingChangeStyle,
     normalizedScope,
-    normalizedDescription
+    normalizedDescription,
   );
   const commitFooter = formatFooterSection(
     breakingChangeStyle,
     normalizedBreakingChangeDescription,
-    normalizedFooter
+    normalizedFooter,
   );
 
   return joinNonEmpty([commitHeader, normalizedBody, commitFooter], "\n\n");
