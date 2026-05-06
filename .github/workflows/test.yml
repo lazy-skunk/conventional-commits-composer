@@ -13,5 +13,5 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      - name: Run Jest
+      - name: Run tests
         run: npm test
