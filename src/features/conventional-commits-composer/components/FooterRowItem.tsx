@@ -25,7 +25,13 @@ export default function FooterRowItem({
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
+    const animationFrameId = requestAnimationFrame(() => {
+      setHasMounted(true);
+    });
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   const handleRemoveClick = () => {
