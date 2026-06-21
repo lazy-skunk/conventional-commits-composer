@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   DEFAULT_OTHER_TYPE,
   isOtherType,
@@ -9,12 +9,12 @@ import {
 export function useCommitTypeSelector(commitType: CommitType) {
   const [lastSelectedOtherType, setLastSelectedOtherType] =
     useState<OtherType>(DEFAULT_OTHER_TYPE);
+  const selectedOtherType = isOtherType(commitType)
+    ? commitType
+    : lastSelectedOtherType;
 
-  useEffect(() => {
-    if (isOtherType(commitType)) {
-      setLastSelectedOtherType(commitType);
-    }
-  }, [commitType]);
-
-  return { lastSelectedOtherType };
+  return {
+    lastSelectedOtherType: selectedOtherType,
+    setLastSelectedOtherType,
+  };
 }
