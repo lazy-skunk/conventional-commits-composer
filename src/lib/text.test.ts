@@ -1,4 +1,6 @@
+import { describe, expect, it } from "vite-plus/test";
 import { joinNonEmpty, normalize } from "./text";
+
 describe("normalize", () => {
   it("trims whitespace", () => {
     expect(normalize("  feat(ui): add button  ")).toBe("feat(ui): add button");
@@ -17,11 +19,8 @@ describe("joinNonEmpty", () => {
   });
 
   it("skips empty parts", () => {
-    expect(
-      joinNonEmpty(
-        ["feat(ui): add button", undefined, "", "Refs: #42"],
-        "\n\n",
-      ),
-    ).toBe("feat(ui): add button\n\nRefs: #42");
+    expect(joinNonEmpty(["feat(ui): add button", undefined, "", "Refs: #42"], "\n\n")).toBe(
+      "feat(ui): add button\n\nRefs: #42",
+    );
   });
 });
