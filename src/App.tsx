@@ -1,5 +1,9 @@
 import ConventionalCommitsComposer from "./components/ConventionalCommitsComposer";
 
 export function App() {
-  return <ConventionalCommitsComposer />;
+  return (
+    <main>
+      <ConventionalCommitsComposer />
+    </main>
+  );
 }
