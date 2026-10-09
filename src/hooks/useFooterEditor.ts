@@ -1,8 +1,8 @@
 import { generateId } from "../lib/id";
 import { useState } from "react";
-import { parseFooters, serializeFooters } from "../lib/footer";
+import { parseFooters, serializeFooters, type FooterEntry } from "../lib/footer";
 
-export type FooterEditorRow = { id: string; token: string; value: string };
+export type FooterEditorRow = FooterEntry & { id: string };
 
 function createEmptyFooterRow(): FooterEditorRow {
   return { id: generateId(), token: "", value: "" };
@@ -17,10 +17,6 @@ function createFooterRows(footerString: string): FooterEditorRow[] {
   return rows.length ? rows : [createEmptyFooterRow()];
 }
 
-function serializeFooterRows(rows: FooterEditorRow[]): string {
-  return serializeFooters(rows.map(({ token, value }) => ({ token, value })));
-}
-
 export function useFooterEditor(
   initialFooterString: string,
   onChangeFooterString: (footerString: string) => void,
@@ -29,7 +25,7 @@ export function useFooterEditor(
 
   const replaceRows = (nextRows: FooterEditorRow[]) => {
     setRows(nextRows);
-    onChangeFooterString(serializeFooterRows(nextRows));
+    onChangeFooterString(serializeFooters(nextRows));
   };
 
   const addRowAfter = (referenceRowId?: string) => {
@@ -49,7 +45,7 @@ export function useFooterEditor(
   const removeRow = (rowId: string) =>
     replaceRows(rows.length <= 1 ? rows : rows.filter((row) => row.id !== rowId));
 
-  const updateRow = (rowId: string, updatedFields: Partial<FooterEditorRow>) =>
+  const updateRow = (rowId: string, updatedFields: Partial<FooterEntry>) =>
     replaceRows(rows.map((row) => (row.id === rowId ? { ...row, ...updatedFields } : row)));
 
   return {

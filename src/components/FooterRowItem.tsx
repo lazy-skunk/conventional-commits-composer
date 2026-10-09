@@ -1,10 +1,10 @@
-import { isFooterTokenInvalid } from "../lib/footer";
+import { isFooterTokenInvalid, type FooterEntry } from "../lib/footer";
 import type { FooterEditorRow } from "../hooks/useFooterEditor";
 
 type Props = {
   row: FooterEditorRow;
   canRemove: boolean;
-  onChangeRow: (rowUpdate: Partial<FooterEditorRow>) => void;
+  onChangeRow: (rowUpdate: Partial<FooterEntry>) => void;
   onAddRowAfter: () => void;
   onRemoveRow: () => void;
 };
