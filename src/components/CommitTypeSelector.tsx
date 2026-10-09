@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function CommitTypeSelector({ commitType, onChangeCommitType }: Props) {
-  const { lastSelectedOtherType, setLastSelectedOtherType } = useCommitTypeSelector(commitType);
+  const { selectedOtherType, setLastSelectedOtherType } = useCommitTypeSelector(commitType);
 
   return (
     <fieldset>
@@ -43,7 +43,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
             name="commit_type"
             className="accent-rose-500"
             value="other"
-            onChange={() => onChangeCommitType(lastSelectedOtherType)}
+            onChange={() => onChangeCommitType(selectedOtherType)}
             checked={isOtherType(commitType)}
           />
           other
@@ -53,7 +53,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
           <div className="mt-2">
             <select
               name="other_type"
-              value={lastSelectedOtherType}
+              value={selectedOtherType}
               onChange={(event) => {
                 const nextOtherType = event.target.value as OtherType;
 

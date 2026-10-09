@@ -11,7 +11,7 @@ export function useCommitTypeSelector(commitType: CommitType) {
   const selectedOtherType = isOtherType(commitType) ? commitType : lastSelectedOtherType;
 
   return {
-    lastSelectedOtherType: selectedOtherType,
+    selectedOtherType,
     setLastSelectedOtherType,
   };
 }
