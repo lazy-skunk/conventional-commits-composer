@@ -16,28 +16,15 @@ type ComposeConventionalCommitParams = {
   footer?: string;
 };
 
-function formatCommitTypeToken(commitType: CommitType, breakingChangeStyle: BreakingChangeStyle) {
-  return isBreakingChangeHeaderMarkRequired(breakingChangeStyle) ? `${commitType}!` : commitType;
-}
-
 function formatCommitHeader(
   commitType: CommitType,
   breakingChangeStyle: BreakingChangeStyle,
   scope: string,
   description: string,
 ): string {
-  const commitTypeToken = formatCommitTypeToken(commitType, breakingChangeStyle);
-  return `${commitTypeToken}${scope ? `(${scope})` : ""}: ${description}`;
-}
-
-function formatBreakingChangeFooter(
-  breakingChangeStyle: BreakingChangeStyle,
-  breakingChangeDescription: string,
-) {
-  if (isBreakingChangeDescriptionRequired(breakingChangeStyle) && breakingChangeDescription) {
-    return `BREAKING-CHANGE: ${breakingChangeDescription}`;
-  }
-  return "";
+  const scopeToken = scope ? `(${scope})` : "";
+  const breakingChangeMark = isBreakingChangeHeaderMarkRequired(breakingChangeStyle) ? "!" : "";
+  return `${commitType}${scopeToken}${breakingChangeMark}: ${description}`;
 }
 
 function formatFooterSection(
@@ -45,10 +32,10 @@ function formatFooterSection(
   breakingChangeDescription: string,
   footer: string,
 ): string {
-  const breakingChangeFooter = formatBreakingChangeFooter(
-    breakingChangeStyle,
-    breakingChangeDescription,
-  );
+  const breakingChangeFooter =
+    isBreakingChangeDescriptionRequired(breakingChangeStyle) && breakingChangeDescription
+      ? `BREAKING-CHANGE: ${breakingChangeDescription}`
+      : "";
   return joinNonEmpty([breakingChangeFooter, footer], "\n");
 }
 
