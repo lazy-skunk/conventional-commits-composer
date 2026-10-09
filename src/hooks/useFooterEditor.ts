@@ -38,6 +38,8 @@ export function useFooterEditor(
     }
 
     const targetIndex = nextRows.findIndex((row) => row.id === referenceRowId);
+    if (targetIndex === -1) return;
+
     nextRows.splice(targetIndex + 1, 0, createEmptyFooterRow());
     replaceRows(nextRows);
   };
