@@ -1,4 +1,4 @@
-import { isTokenInvalid } from "../lib/footer";
+import { isFooterTokenInvalid } from "../lib/footer";
 import type { FooterEditorRow } from "../hooks/useFooterEditor";
 
 type Props = {
@@ -24,7 +24,7 @@ export default function FooterRowItem({
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
         className={`rounded bg-zinc-800 text-zinc-100 w-full p-2 ${
-          isTokenInvalid(row.token) ? "border-red-500" : ""
+          isFooterTokenInvalid(row.token) ? "border-red-500" : ""
         }`}
       />
 
@@ -59,7 +59,7 @@ export default function FooterRowItem({
         </button>
       </div>
 
-      {isTokenInvalid(row.token) && (
+      {isFooterTokenInvalid(row.token) && (
         <div className="col-span-3">
           <p className="text-red-500">
             A footer’s token MUST use - in place of whitespace characters
