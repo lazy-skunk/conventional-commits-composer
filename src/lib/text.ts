@@ -1,4 +1,4 @@
-export function normalize(input?: string): string {
+export function trimOrEmpty(input?: string): string {
   return (input ?? "").trim();
 }
 

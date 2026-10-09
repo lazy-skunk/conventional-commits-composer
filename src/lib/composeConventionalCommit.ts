@@ -1,4 +1,4 @@
-import { joinNonEmpty, normalize } from "./text";
+import { joinNonEmpty, trimOrEmpty } from "./text";
 import type { BreakingChangeStyle } from "./breakingChange";
 import {
   isBreakingChangeDescriptionRequired,
@@ -61,11 +61,11 @@ export function composeConventionalCommit({
   breakingChangeDescription,
   footer,
 }: ComposeConventionalCommitParams) {
-  const normalizedScope = normalize(scope);
-  const normalizedDescription = normalize(description);
-  const normalizedBody = normalize(body);
-  const normalizedBreakingChangeDescription = normalize(breakingChangeDescription);
-  const normalizedFooter = normalize(footer);
+  const normalizedScope = trimOrEmpty(scope);
+  const normalizedDescription = trimOrEmpty(description);
+  const normalizedBody = trimOrEmpty(body);
+  const normalizedBreakingChangeDescription = trimOrEmpty(breakingChangeDescription);
+  const normalizedFooter = trimOrEmpty(footer);
 
   const commitHeader = formatCommitHeader(
     commitType,
