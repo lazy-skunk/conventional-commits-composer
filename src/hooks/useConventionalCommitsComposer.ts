@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { BreakingChangeStyle } from "../lib/breakingChange";
 import { composeConventionalCommit } from "../lib/composeConventionalCommit";
 import type { CommitType } from "../lib/commitType";
@@ -12,17 +12,7 @@ export function useConventionalCommitsComposer() {
   const [breakingChangeDescription, setBreakingChangeDescription] = useState("");
   const [footer, setFooter] = useState("");
 
-  const commitPreview = useMemo(() => {
-    return composeConventionalCommit({
-      commitType,
-      scope,
-      description,
-      body,
-      breakingChangeStyle,
-      breakingChangeDescription,
-      footer,
-    });
-  }, [
+  const commitPreview = composeConventionalCommit({
     commitType,
     scope,
     description,
@@ -30,7 +20,7 @@ export function useConventionalCommitsComposer() {
     breakingChangeStyle,
     breakingChangeDescription,
     footer,
-  ]);
+  });
 
   return {
     commitType,
