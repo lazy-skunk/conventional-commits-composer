@@ -16,6 +16,8 @@ export default function FooterRowItem({
   onAddRowAfter,
   onRemoveRow,
 }: Props) {
+  const tokenInvalid = isFooterTokenInvalid(row.token);
+
   return (
     <div className="grid gap-2" style={{ gridTemplateColumns: "1fr 1.618fr auto" }}>
       <input
@@ -24,7 +26,7 @@ export default function FooterRowItem({
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
         className={`rounded bg-zinc-800 text-zinc-100 w-full p-2 ${
-          isFooterTokenInvalid(row.token) ? "border-red-500" : ""
+          tokenInvalid ? "border-red-500" : ""
         }`}
       />
 
@@ -59,7 +61,7 @@ export default function FooterRowItem({
         </button>
       </div>
 
-      {isFooterTokenInvalid(row.token) && (
+      {tokenInvalid && (
         <div className="col-span-3">
           <p className="text-red-500">
             A footer’s token MUST use - in place of whitespace characters

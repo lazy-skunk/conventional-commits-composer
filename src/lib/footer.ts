@@ -4,14 +4,9 @@ export type FooterEntry = { token: string; value: string };
 
 const BREAKING_CHANGE_TOKENS = new Set(["BREAKING CHANGE", "BREAKING-CHANGE"]);
 
-function isWhitespaceAllowedForBreakingChangeToken(token: string): boolean {
-  const normalizedToken = trimOrEmpty(token);
-  return BREAKING_CHANGE_TOKENS.has(normalizedToken);
-}
-
 export function isFooterTokenInvalid(token: string): boolean {
-  if (isWhitespaceAllowedForBreakingChangeToken(token)) return false;
   const normalizedToken = trimOrEmpty(token);
+  if (BREAKING_CHANGE_TOKENS.has(normalizedToken)) return false;
   return /\s/.test(normalizedToken);
 }
 
