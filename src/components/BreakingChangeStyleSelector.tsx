@@ -1,4 +1,4 @@
-import { BREAKING_CHANGE_OPTIONS, type BreakingChangeStyle } from "../domain/breakingChange";
+import { BREAKING_CHANGE_OPTIONS, type BreakingChangeStyle } from "../lib/breakingChange";
 
 type Props = {
   breakingChangeStyle: BreakingChangeStyle;

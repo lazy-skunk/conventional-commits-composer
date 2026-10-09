@@ -1,4 +1,4 @@
-import { joinNonEmpty, normalize } from "../lib/text";
+import { joinNonEmpty, normalize } from "./text";
 import type { BreakingChangeStyle } from "./breakingChange";
 import {
   isBreakingChangeDescriptionRequired,

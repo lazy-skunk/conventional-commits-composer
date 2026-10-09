@@ -1,6 +1,6 @@
 import { generateId } from "../lib/id";
 import { useState } from "react";
-import { parseFooters, serializeFooters } from "../domain/footer";
+import { parseFooters, serializeFooters } from "../lib/footer";
 
 export type FooterEditorRow = { id: string; token: string; value: string };
 

@@ -1,6 +1,6 @@
 export type FooterEntry = { token: string; value: string };
 
-import { normalize } from "../lib/text";
+import { normalize } from "./text";
 
 const BREAKING_CHANGE_TOKENS = new Set(["BREAKING CHANGE", "BREAKING-CHANGE"]);
 

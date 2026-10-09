@@ -1,4 +1,4 @@
-import { isTokenInvalid } from "../domain/footer";
+import { isTokenInvalid } from "../lib/footer";
 import type { FooterEditorRow } from "../hooks/useFooterEditor";
 
 type Props = {

@@ -1,4 +1,4 @@
-import { copyToClipboard } from "../utils/clipboard";
+import { copyToClipboard } from "../lib/clipboard";
 
 type Props = { text: string };
 

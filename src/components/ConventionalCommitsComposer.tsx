@@ -1,4 +1,4 @@
-import { isBreakingChangeDescriptionRequired } from "../domain/breakingChange";
+import { isBreakingChangeDescriptionRequired } from "../lib/breakingChange";
 import { useConventionalCommitsComposer } from "../hooks/useConventionalCommitsComposer";
 import BodyInput from "./BodyInput";
 import BreakingChangeDescriptionInput from "./BreakingChangeDescriptionInput";

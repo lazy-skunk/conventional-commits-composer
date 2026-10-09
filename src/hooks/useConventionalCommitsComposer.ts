@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import type { BreakingChangeStyle } from "../domain/breakingChange";
-import { composeConventionalCommit } from "../domain/composeConventionalCommit";
-import type { CommitType } from "../domain/commitType";
+import type { BreakingChangeStyle } from "../lib/breakingChange";
+import { composeConventionalCommit } from "../lib/composeConventionalCommit";
+import type { CommitType } from "../lib/commitType";
 
 export function useConventionalCommitsComposer() {
   const [commitType, setCommitType] = useState<CommitType>("feat");

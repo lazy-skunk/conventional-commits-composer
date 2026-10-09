@@ -4,7 +4,7 @@ import {
   PRIMARY_TYPE_OPTIONS,
   type CommitType,
   type OtherType,
-} from "../domain/commitType";
+} from "../lib/commitType";
 import { useCommitTypeSelector } from "../hooks/useCommitTypeSelector";
 
 type Props = {

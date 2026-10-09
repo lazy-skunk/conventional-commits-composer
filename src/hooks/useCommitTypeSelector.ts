@@ -4,7 +4,7 @@ import {
   isOtherType,
   type CommitType,
   type OtherType,
-} from "../domain/commitType";
+} from "../lib/commitType";
 
 export function useCommitTypeSelector(commitType: CommitType) {
   const [lastSelectedOtherType, setLastSelectedOtherType] = useState<OtherType>(DEFAULT_OTHER_TYPE);
