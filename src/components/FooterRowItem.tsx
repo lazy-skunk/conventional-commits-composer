@@ -16,6 +16,8 @@ export default function FooterRowItem({
   onAddRowAfter,
   onRemoveRow,
 }: Props) {
+  const tokenMissing = !row.token.trim() && !!row.value.trim();
+  const valueMissing = !!row.token.trim() && !row.value.trim();
   const tokenInvalid = isFooterTokenInvalid(row.token);
 
   return (
@@ -61,11 +63,15 @@ export default function FooterRowItem({
         </button>
       </div>
 
-      {tokenInvalid && (
+      {(tokenMissing || valueMissing || tokenInvalid) && (
         <div className="col-span-3">
-          <p className="text-red-500">
-            A footer’s token MUST use - in place of whitespace characters
-          </p>
+          {tokenMissing && <p className="text-red-500">Token is required</p>}
+          {valueMissing && <p className="text-red-500">Value is required</p>}
+          {tokenInvalid && (
+            <p className="text-red-500">
+              A footer’s token MUST use - in place of whitespace characters
+            </p>
+          )}
         </div>
       )}
     </div>
