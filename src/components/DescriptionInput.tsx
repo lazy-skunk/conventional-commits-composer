@@ -16,7 +16,6 @@ export default function DescriptionInput({ description, onChangeDescription }: P
         onChange={(event) => onChangeDescription(event.target.value)}
         className="rounded bg-zinc-500/10 w-full p-2"
         placeholder="Short summary of the code changes"
-        required
       />
     </div>
   );

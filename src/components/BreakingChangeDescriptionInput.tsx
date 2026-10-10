@@ -15,7 +15,6 @@ export default function BreakingChangeDescriptionInput({
       className="rounded bg-zinc-800 text-zinc-100 w-full p-2"
       rows={2}
       placeholder="Describe the breaking change"
-      required
     />
   );
 }
