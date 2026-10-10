@@ -1,6 +1,6 @@
 import { generateId } from "../lib/id";
 import { useState } from "react";
-import { parseFooters, serializeFooters, type FooterEntry } from "../lib/footer";
+import { serializeFooters, type FooterEntry } from "../lib/footer";
 
 export type FooterEditorRow = FooterEntry & { id: string };
 
@@ -8,25 +8,10 @@ function createEmptyFooterRow(): FooterEditorRow {
   return { id: generateId(), token: "", value: "" };
 }
 
-function createFooterRows(footerString: string): FooterEditorRow[] {
-  const rows = parseFooters(footerString).map((footerEntry) => ({
-    id: generateId(),
-    ...footerEntry,
-  }));
+export function useFooterEditor() {
+  const [rows, setRows] = useState<FooterEditorRow[]>(() => [createEmptyFooterRow()]);
 
-  return rows.length ? rows : [createEmptyFooterRow()];
-}
-
-export function useFooterEditor(
-  initialFooterString: string,
-  onChangeFooterString: (footerString: string) => void,
-) {
-  const [rows, setRows] = useState<FooterEditorRow[]>(() => createFooterRows(initialFooterString));
-
-  const replaceRows = (nextRows: FooterEditorRow[]) => {
-    setRows(nextRows);
-    onChangeFooterString(serializeFooters(nextRows));
-  };
+  const replaceRows = (nextRows: FooterEditorRow[]) => setRows(nextRows);
 
   const addRowAfter = (referenceRowId?: string) => {
     const nextRows = [...rows];
@@ -52,6 +37,7 @@ export function useFooterEditor(
 
   return {
     rows,
+    footer: serializeFooters(rows),
     addRowAfter,
     removeRow,
     updateRow,

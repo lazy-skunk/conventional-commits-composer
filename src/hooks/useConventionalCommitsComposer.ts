@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { BreakingChangeStyle } from "../lib/breakingChange";
 import { composeConventionalCommit } from "../lib/composeConventionalCommit";
 import type { CommitType } from "../lib/commitType";
+import { useFooterEditor } from "./useFooterEditor";
 
 export function useConventionalCommitsComposer() {
   const [commitType, setCommitType] = useState<CommitType>("feat");
@@ -10,7 +11,7 @@ export function useConventionalCommitsComposer() {
   const [body, setBody] = useState("");
   const [breakingChangeStyle, setBreakingChangeStyle] = useState<BreakingChangeStyle>("none");
   const [breakingChangeDescription, setBreakingChangeDescription] = useState("");
-  const [footer, setFooter] = useState("");
+  const footerEditor = useFooterEditor();
 
   const commitPreview = composeConventionalCommit({
     commitType,
@@ -19,7 +20,7 @@ export function useConventionalCommitsComposer() {
     body,
     breakingChangeStyle,
     breakingChangeDescription,
-    footer,
+    footer: footerEditor.footer,
   });
 
   return {
@@ -29,7 +30,7 @@ export function useConventionalCommitsComposer() {
     body,
     breakingChangeStyle,
     breakingChangeDescription,
-    footer,
+    footerEditor,
 
     setCommitType,
     setScope,
@@ -37,8 +38,6 @@ export function useConventionalCommitsComposer() {
     setBody,
     setBreakingChangeStyle,
     setBreakingChangeDescription,
-    setFooter,
-
     commitPreview,
   };
 }

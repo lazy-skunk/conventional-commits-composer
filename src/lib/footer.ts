@@ -10,17 +10,6 @@ export function isFooterTokenInvalid(token: string): boolean {
   return /\s/.test(normalizedToken);
 }
 
-export function parseFooters(input: string): FooterEntry[] {
-  if (!input) return [];
-
-  return input.split(/\r?\n/).map((line) => {
-    const delimiterIndex = line.indexOf(": ");
-    const tokenPart = delimiterIndex >= 0 ? line.slice(0, delimiterIndex) : line;
-    const valuePart = delimiterIndex >= 0 ? line.slice(delimiterIndex + 2) : "";
-    return { token: trimOrEmpty(tokenPart), value: trimOrEmpty(valuePart) };
-  });
-}
-
 export function serializeFooters(rows: FooterEntry[]): string {
   if (!rows?.length) return "";
 

@@ -47,7 +47,12 @@ export default function ConventionalCommitsComposer() {
             )}
           </BreakingChangeStyleSelector>
 
-          <FooterInput initialFooter={composer.footer} onChangeFooter={composer.setFooter} />
+          <FooterInput
+            rows={composer.footerEditor.rows}
+            addRowAfter={composer.footerEditor.addRowAfter}
+            removeRow={composer.footerEditor.removeRow}
+            updateRow={composer.footerEditor.updateRow}
+          />
         </div>
 
         <div className="space-y-4">
