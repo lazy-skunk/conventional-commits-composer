@@ -27,7 +27,7 @@ export default function BreakingChangeStyleSelector({
               value={option.value}
               onChange={() => onChangeBreakingChangeStyle(option.value)}
               checked={breakingChangeStyle === option.value}
-              className="accent-rose-500"
+              className="accent-blue-500"
             />
             {`${option.value}: ${option.description}`}
           </label>

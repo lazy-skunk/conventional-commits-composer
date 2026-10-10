@@ -28,7 +28,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
             <input
               type="radio"
               name="commit_type"
-              className="accent-rose-500"
+              className="accent-blue-500"
               value={value}
               onChange={() => onChangeCommitType(value)}
               checked={commitType === value}
@@ -41,7 +41,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
           <input
             type="radio"
             name="commit_type"
-            className="accent-rose-500"
+            className="accent-blue-500"
             value="other"
             onChange={() => onChangeCommitType(selectedOtherType)}
             checked={isOtherType(commitType)}
