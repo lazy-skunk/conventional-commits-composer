@@ -21,3 +21,41 @@ describe("Conventional Commits breaking change header", () => {
     },
   );
 });
+
+describe("composeConventionalCommit", () => {
+  it("composes scope, body, and footer with blank lines", () => {
+    const message = composeConventionalCommit({
+      commitType: "fix",
+      scope: " api ",
+      description: " handle timeout ",
+      body: " Add a retry before returning an error. ",
+      breakingChangeStyle: "none",
+      footer: "Refs: #123",
+    });
+
+    expect(message).toBe(
+      "fix(api): handle timeout\n\nAdd a retry before returning an error.\n\nRefs: #123",
+    );
+  });
+
+  it("omits empty optional sections", () => {
+    const message = composeConventionalCommit({
+      commitType: "docs",
+      description: " update setup guide ",
+      breakingChangeStyle: "none",
+    });
+
+    expect(message).toBe("docs: update setup guide");
+  });
+
+  it("adds only the breaking change footer for footer style", () => {
+    const message = composeConventionalCommit({
+      commitType: "feat",
+      description: "replace authentication flow",
+      breakingChangeStyle: "footer",
+      breakingChangeDescription: "use OAuth 2.0",
+    });
+
+    expect(message).toBe("feat: replace authentication flow\n\nBREAKING-CHANGE: use OAuth 2.0");
+  });
+});
