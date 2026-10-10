@@ -5,17 +5,10 @@ type Props = {
   row: FooterEditorRow;
   canRemove: boolean;
   onChangeRow: (rowUpdate: Partial<FooterEntry>) => void;
-  onAddRowAfter: () => void;
   onRemoveRow: () => void;
 };
 
-export default function FooterRowItem({
-  row,
-  canRemove,
-  onChangeRow,
-  onAddRowAfter,
-  onRemoveRow,
-}: Props) {
+export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow }: Props) {
   const tokenMissing = !row.token.trim() && !!row.value.trim();
   const valueMissing = !!row.token.trim() && !row.value.trim();
   const tokenInvalid = isFooterTokenInvalid(row.token);
@@ -43,23 +36,16 @@ export default function FooterRowItem({
       <div className="flex gap-1 items-center">
         <button
           type="button"
-          onClick={onAddRowAfter}
-          className="rounded-full h-7 w-7 cursor-pointer transition hover:bg-green-500/50 active:scale-95"
-        >
-          +
-        </button>
-        <button
-          type="button"
           onClick={onRemoveRow}
           className={[
-            "rounded-full h-7 w-7 transition",
+            "rounded px-2 py-1 transition",
             canRemove
-              ? "cursor-pointer hover:bg-red-500/50 active:scale-95"
-              : "opacity-50 cursor-not-allowed pointer-events-none",
+              ? "bg-red-500/25 cursor-pointer hover:bg-red-500/50 active:scale-95"
+              : "bg-zinc-500/10 opacity-50 cursor-not-allowed pointer-events-none",
           ].join(" ")}
           disabled={!canRemove}
         >
-          ×
+          Remove
         </button>
       </div>
 

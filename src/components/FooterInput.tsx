@@ -4,12 +4,12 @@ import FooterRowItem from "./FooterRowItem";
 
 type Props = {
   rows: FooterEditorRow[];
-  addRowAfter: (referenceRowId?: string) => void;
+  addRow: () => void;
   removeRow: (rowId: string) => void;
   updateRow: (rowId: string, updatedFields: Partial<FooterEntry>) => void;
 };
 
-export default function FooterInput({ rows, addRowAfter, removeRow, updateRow }: Props) {
+export default function FooterInput({ rows, addRow, removeRow, updateRow }: Props) {
   return (
     <fieldset>
       <legend className="font-bold">Footer (optional)</legend>
@@ -21,10 +21,17 @@ export default function FooterInput({ rows, addRowAfter, removeRow, updateRow }:
             row={row}
             canRemove={rows.length > 1}
             onChangeRow={(rowUpdate) => updateRow(row.id, rowUpdate)}
-            onAddRowAfter={() => addRowAfter(row.id)}
             onRemoveRow={() => removeRow(row.id)}
           />
         ))}
+
+        <button
+          type="button"
+          onClick={addRow}
+          className="rounded bg-green-500/25 px-3 py-1.5 cursor-pointer transition hover:bg-green-500/50 active:scale-95"
+        >
+          Add footer
+        </button>
       </div>
     </fieldset>
   );

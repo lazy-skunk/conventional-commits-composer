@@ -49,7 +49,7 @@ export default function ConventionalCommitsComposer() {
 
           <FooterInput
             rows={composer.footerEditor.rows}
-            addRowAfter={composer.footerEditor.addRowAfter}
+            addRow={composer.footerEditor.addRow}
             removeRow={composer.footerEditor.removeRow}
             updateRow={composer.footerEditor.updateRow}
           />

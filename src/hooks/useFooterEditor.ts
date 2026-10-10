@@ -11,34 +11,22 @@ function createEmptyFooterRow(): FooterEditorRow {
 export function useFooterEditor() {
   const [rows, setRows] = useState<FooterEditorRow[]>(() => [createEmptyFooterRow()]);
 
-  const replaceRows = (nextRows: FooterEditorRow[]) => setRows(nextRows);
-
-  const addRowAfter = (referenceRowId?: string) => {
-    const nextRows = [...rows];
-
-    if (!referenceRowId) {
-      nextRows.push(createEmptyFooterRow());
-      replaceRows(nextRows);
-      return;
-    }
-
-    const targetIndex = nextRows.findIndex((row) => row.id === referenceRowId);
-    if (targetIndex === -1) return;
-
-    nextRows.splice(targetIndex + 1, 0, createEmptyFooterRow());
-    replaceRows(nextRows);
-  };
+  const addRow = () => setRows((currentRows) => [...currentRows, createEmptyFooterRow()]);
 
   const removeRow = (rowId: string) =>
-    replaceRows(rows.length <= 1 ? rows : rows.filter((row) => row.id !== rowId));
+    setRows((currentRows) =>
+      currentRows.length <= 1 ? currentRows : currentRows.filter((row) => row.id !== rowId),
+    );
 
   const updateRow = (rowId: string, updatedFields: Partial<FooterEntry>) =>
-    replaceRows(rows.map((row) => (row.id === rowId ? { ...row, ...updatedFields } : row)));
+    setRows((currentRows) =>
+      currentRows.map((row) => (row.id === rowId ? { ...row, ...updatedFields } : row)),
+    );
 
   return {
     rows,
     footer: serializeFooters(rows),
-    addRowAfter,
+    addRow,
     removeRow,
     updateRow,
   };
