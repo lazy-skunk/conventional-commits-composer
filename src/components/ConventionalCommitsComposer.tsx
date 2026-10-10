@@ -14,10 +14,10 @@ export default function ConventionalCommitsComposer() {
   const composer = useConventionalCommitsComposer();
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-3xl mx-auto px-4">
       <h1 className="text-xl font-black text-center my-4">Conventional Commits Composer</h1>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-4">
         <div className="space-y-4">
           <CommitTypeSelector
             commitType={composer.commitType}
