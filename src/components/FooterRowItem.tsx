@@ -20,9 +20,7 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`rounded bg-zinc-800 text-zinc-100 w-full p-2 ${
-          tokenInvalid ? "border-red-500" : ""
-        }`}
+        className={`rounded bg-gray-700/25 w-full p-2 ${tokenInvalid ? "border border-red-500" : ""}`}
       />
 
       <input
@@ -30,7 +28,7 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="rounded bg-zinc-800 text-zinc-100 w-full p-2"
+        className="rounded bg-gray-700/25 w-full p-2"
       />
 
       <div className="flex gap-1 items-center">
@@ -40,8 +38,8 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
           className={[
             "rounded px-2 py-1 transition",
             canRemove
-              ? "bg-red-500/25 cursor-pointer hover:bg-red-500/50 active:scale-95"
-              : "bg-zinc-500/10 opacity-50 cursor-not-allowed pointer-events-none",
+              ? "bg-red-900/50 cursor-pointer hover:bg-red-900 active:scale-95"
+              : "bg-gray-700/25 opacity-50 cursor-not-allowed pointer-events-none",
           ].join(" ")}
           disabled={!canRemove}
         >

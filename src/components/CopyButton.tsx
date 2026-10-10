@@ -34,10 +34,9 @@ export default function CopyButton({ text }: Props) {
         onClick={() => void handleCopy()}
         className={`
         inline-flex items-center gap-1 px-3 py-1.5
-        rounded-full border
-        text-zinc-100 border-zinc-100/25
+        rounded bg-linear-45 from-pink-500/75 to-orange-500/75
         transition
-        hover:text-white hover:border-transparent hover:bg-linear-45 hover:from-pink-500 hover:to-orange-500
+        hover:from-pink-500 hover:to-orange-500
         active:scale-95
         cursor-pointer
       `}

@@ -14,7 +14,7 @@ export default function FooterInput({ rows, addRow, removeRow, updateRow }: Prop
     <fieldset>
       <legend className="font-bold">Footer (optional)</legend>
 
-      <div className="rounded bg-zinc-500/10 w-full p-2 space-y-2">
+      <div className="rounded bg-gray-800/50 w-full p-2 space-y-2">
         {rows.map((row) => (
           <FooterRowItem
             key={row.id}
@@ -28,7 +28,7 @@ export default function FooterInput({ rows, addRow, removeRow, updateRow }: Prop
         <button
           type="button"
           onClick={addRow}
-          className="rounded bg-green-500/25 px-3 py-1.5 cursor-pointer transition hover:bg-green-500/50 active:scale-95"
+          className="rounded bg-green-900/50 px-3 py-1.5 cursor-pointer transition hover:bg-green-900 active:scale-95"
         >
           Add footer
         </button>

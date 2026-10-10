@@ -14,7 +14,7 @@ export default function BodyInput({ body, onChangeBody }: Props) {
         id="body"
         value={body}
         onChange={(event) => onChangeBody(event.target.value)}
-        className="rounded bg-zinc-500/10 w-full p-2"
+        className="rounded bg-gray-800/50 w-full p-2"
         rows={3}
         placeholder="Additional contextual information about the code changes"
       />
