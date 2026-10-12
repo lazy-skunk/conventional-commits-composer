@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 type Props = { text: string };
 
+const COPY_RESULT_DISPLAY_MILLISECONDS = 2000;
+
 export default function CopyButton({ text }: Props) {
   const [copyResult, setCopyResult] = useState<{ text: string; success: boolean } | null>(null);
 
@@ -14,7 +16,7 @@ export default function CopyButton({ text }: Props) {
     }
     if (!copyResult.success) return;
 
-    const timeout = setTimeout(() => setCopyResult(null), 2000);
+    const timeout = setTimeout(() => setCopyResult(null), COPY_RESULT_DISPLAY_MILLISECONDS);
     return () => clearTimeout(timeout);
   }, [copyResult, text]);
 
