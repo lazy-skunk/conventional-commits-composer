@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
+
 import { isFooterTokenInvalid, serializeFooters } from "./footer";
 
 describe("isFooterTokenInvalid", () => {

@@ -1,10 +1,10 @@
-import { joinNonEmpty, trimOrEmpty } from "./text";
 import type { BreakingChangeStyle } from "./breakingChange";
 import {
   isBreakingChangeDescriptionRequired,
   isBreakingChangeHeaderMarkRequired,
 } from "./breakingChange";
 import type { CommitType } from "./commitType";
+import { joinNonEmpty, trimOrEmpty } from "./text";
 
 type ComposeConventionalCommitParams = {
   commitType: CommitType;

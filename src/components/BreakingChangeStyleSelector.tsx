@@ -19,7 +19,7 @@ export default function BreakingChangeStyleSelector({
         {BREAKING_CHANGE_OPTIONS.map((option) => (
           <label
             key={option.value}
-            className="flex gap-2 rounded cursor-pointer transition hover:bg-gray-700/25"
+            className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25"
           >
             <input
               type="radio"

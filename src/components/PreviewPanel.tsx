@@ -4,8 +4,8 @@ export default function PreviewPanel({ commitMessage, children }: Props) {
   return (
     <section>
       <h2 className="font-bold">Preview</h2>
-      <div className="bg-gray-800/50 rounded p-2">
-        <pre className="whitespace-pre-wrap break-words">{commitMessage}</pre>
+      <div className="rounded bg-gray-800/50 p-2">
+        <pre className="break-words whitespace-pre-wrap">{commitMessage}</pre>
         <div className="flex justify-end">{children}</div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-import { useConventionalCommitsComposer } from "./hooks/useConventionalCommitsComposer";
-import { isBreakingChangeDescriptionRequired } from "./lib/breakingChange";
 import BodyInput from "./components/BodyInput";
 import BreakingChangeDescriptionInput from "./components/BreakingChangeDescriptionInput";
 import BreakingChangeStyleSelector from "./components/BreakingChangeStyleSelector";
@@ -9,13 +7,15 @@ import DescriptionInput from "./components/DescriptionInput";
 import FooterInput from "./components/FooterInput";
 import PreviewPanel from "./components/PreviewPanel";
 import ScopeInput from "./components/ScopeInput";
+import { useConventionalCommitsComposer } from "./hooks/useConventionalCommitsComposer";
+import { isBreakingChangeDescriptionRequired } from "./lib/breakingChange";
 
 export function App() {
   const composer = useConventionalCommitsComposer();
 
   return (
-    <main className="max-w-3xl mx-auto px-4">
-      <h1 className="text-xl font-black text-center my-4">Conventional Commits Composer</h1>
+    <main className="mx-auto max-w-3xl px-4">
+      <h1 className="my-4 text-center text-xl font-black">Conventional Commits Composer</h1>
 
       <div className="space-y-4">
         <div className="space-y-4">
@@ -62,7 +62,7 @@ export function App() {
 
           <div>
             <p>References</p>
-            <ul className="list-disc list-inside">
+            <ul className="list-inside list-disc">
               <li>
                 <a
                   href="https://www.conventionalcommits.org/en/v1.0.0/"

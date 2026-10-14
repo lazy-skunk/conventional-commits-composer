@@ -1,5 +1,6 @@
-import { copyToClipboard } from "../lib/clipboard";
 import { useEffect, useState } from "react";
+
+import { copyToClipboard } from "../lib/clipboard";
 
 type Props = { text: string };
 
@@ -9,16 +10,11 @@ export default function CopyButton({ text }: Props) {
   const [copyResult, setCopyResult] = useState<{ text: string; success: boolean } | null>(null);
 
   useEffect(() => {
-    if (!copyResult) return;
-    if (copyResult.text !== text) {
-      setCopyResult(null);
-      return;
-    }
-    if (!copyResult.success) return;
+    if (!copyResult?.success) return;
 
     const timeout = setTimeout(() => setCopyResult(null), COPY_RESULT_DISPLAY_MILLISECONDS);
     return () => clearTimeout(timeout);
-  }, [copyResult, text]);
+  }, [copyResult]);
 
   const currentCopyResult = copyResult?.text === text ? copyResult : null;
 
@@ -34,14 +30,7 @@ export default function CopyButton({ text }: Props) {
       <button
         type="button"
         onClick={() => void handleCopy()}
-        className={`
-        inline-flex items-center gap-1 px-3 py-1.5
-        rounded bg-linear-45 from-pink-500/75 to-orange-500/75
-        transition
-        hover:from-pink-500 hover:to-orange-500
-        active:scale-95
-        cursor-pointer
-      `}
+        className={`inline-flex cursor-pointer items-center gap-1 rounded bg-linear-45 from-pink-500/75 to-orange-500/75 px-3 py-1.5 transition hover:from-pink-500 hover:to-orange-500 active:scale-95`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

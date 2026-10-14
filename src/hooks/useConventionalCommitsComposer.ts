@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 import type { BreakingChangeStyle } from "../lib/breakingChange";
-import { composeConventionalCommit } from "../lib/composeConventionalCommit";
 import type { CommitType } from "../lib/commitType";
+import { composeConventionalCommit } from "../lib/composeConventionalCommit";
 import { useFooterEditor } from "./useFooterEditor";
 
 export function useConventionalCommitsComposer() {

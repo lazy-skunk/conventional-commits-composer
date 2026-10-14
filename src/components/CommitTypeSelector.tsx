@@ -1,3 +1,4 @@
+import { useCommitTypeSelector } from "../hooks/useCommitTypeSelector";
 import {
   isOtherType,
   OTHER_TYPE_OPTIONS,
@@ -5,7 +6,6 @@ import {
   type CommitType,
   type OtherType,
 } from "../lib/commitType";
-import { useCommitTypeSelector } from "../hooks/useCommitTypeSelector";
 
 type Props = {
   commitType: CommitType;
@@ -23,7 +23,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
         {PRIMARY_TYPE_OPTIONS.map(({ value, description }) => (
           <label
             key={value}
-            className="flex gap-2 rounded cursor-pointer transition hover:bg-gray-700/25"
+            className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25"
           >
             <input
               type="radio"
@@ -37,7 +37,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
           </label>
         ))}
 
-        <label className="flex gap-2 rounded cursor-pointer transition hover:bg-gray-700/25">
+        <label className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25">
           <input
             type="radio"
             name="commit_type"
@@ -61,7 +61,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
                 setLastSelectedOtherType(nextOtherType);
                 onChangeCommitType(nextOtherType);
               }}
-              className="rounded bg-gray-700/25 w-full p-2"
+              className="w-full rounded bg-gray-700/25 p-2"
             >
               {OTHER_TYPE_OPTIONS.map(({ value, description }) => (
                 <option key={value} value={value} className="bg-gray-800">

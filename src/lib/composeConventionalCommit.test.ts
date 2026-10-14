@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
+
 import { composeConventionalCommit } from "./composeConventionalCommit";
 
 describe("Conventional Commits breaking change header", () => {

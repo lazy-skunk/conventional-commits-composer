@@ -1,6 +1,7 @@
-import { generateId } from "../lib/id";
 import { useState } from "react";
+
 import { serializeFooters, type FooterEntry } from "../lib/footer";
+import { generateId } from "../lib/id";
 
 export type FooterEditorRow = FooterEntry & { id: string };
 

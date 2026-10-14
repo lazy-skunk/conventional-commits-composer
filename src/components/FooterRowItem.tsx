@@ -1,5 +1,5 @@
-import { isFooterTokenInvalid, type FooterEntry } from "../lib/footer";
 import type { FooterEditorRow } from "../hooks/useFooterEditor";
+import { isFooterTokenInvalid, type FooterEntry } from "../lib/footer";
 
 type Props = {
   row: FooterEditorRow;
@@ -20,7 +20,7 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`rounded bg-gray-700/25 w-full p-2 ${tokenInvalid ? "border border-red-500" : ""}`}
+        className={`w-full rounded bg-gray-700/25 p-2 ${tokenInvalid ? "border border-red-500" : ""}`}
       />
 
       <input
@@ -28,10 +28,10 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="rounded bg-gray-700/25 w-full p-2"
+        className="w-full rounded bg-gray-700/25 p-2"
       />
 
-      <div className="flex gap-1 items-center">
+      <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={onRemoveRow}
