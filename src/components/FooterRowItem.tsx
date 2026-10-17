@@ -20,7 +20,7 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.token}
         onChange={(event) => onChangeRow({ token: event.target.value })}
         placeholder="Token"
-        className={`w-full rounded bg-gray-700/25 p-2 ${tokenInvalid ? "border border-red-500" : ""}`}
+        className={`bg-foreground/3 w-full rounded p-2 ${tokenInvalid ? "border border-red-500" : ""}`}
       />
 
       <input
@@ -28,19 +28,14 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
         value={row.value}
         onChange={(event) => onChangeRow({ value: event.target.value })}
         placeholder="Value"
-        className="w-full rounded bg-gray-700/25 p-2"
+        className="bg-foreground/3 w-full rounded p-2"
       />
 
       <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={onRemoveRow}
-          className={[
-            "rounded px-2 py-1 transition",
-            canRemove
-              ? "bg-red-900/50 cursor-pointer hover:bg-red-900 active:scale-95"
-              : "bg-gray-700/25 opacity-50 cursor-not-allowed pointer-events-none",
-          ].join(" ")}
+          className="disabled:bg-foreground/3 disabled:text-foreground/50 dark:disabled:bg-foreground/3 dark:disabled:text-foreground/50 cursor-pointer rounded bg-red-100 px-4 py-2 text-sm font-medium text-red-900 disabled:cursor-not-allowed disabled:active:translate-y-0 motion-safe:transition motion-safe:active:translate-y-px dark:bg-red-900 dark:text-red-100"
           disabled={!canRemove}
         >
           Remove

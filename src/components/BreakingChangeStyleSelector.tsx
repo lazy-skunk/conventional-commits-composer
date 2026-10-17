@@ -15,11 +15,11 @@ export default function BreakingChangeStyleSelector({
     <fieldset>
       <legend className="font-bold">Breaking Change</legend>
 
-      <div className="rounded bg-gray-800/50 p-2">
+      <div className="bg-foreground/3 rounded p-2">
         {BREAKING_CHANGE_OPTIONS.map((option) => (
           <label
             key={option.value}
-            className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25"
+            className="hover:bg-foreground/3 flex cursor-pointer gap-2 rounded motion-safe:transition"
           >
             <input
               type="radio"

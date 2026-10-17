@@ -14,7 +14,7 @@ export default function DescriptionInput({ description, onChangeDescription }: P
         id="description"
         value={description}
         onChange={(event) => onChangeDescription(event.target.value)}
-        className="w-full rounded bg-gray-800/50 p-2"
+        className="bg-foreground/3 w-full rounded p-2"
         placeholder="Short summary of the code changes"
       />
     </div>

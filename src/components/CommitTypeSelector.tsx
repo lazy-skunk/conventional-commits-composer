@@ -19,11 +19,11 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
     <fieldset>
       <legend className="font-bold">Type</legend>
 
-      <div className="rounded bg-gray-800/50 p-2">
+      <div className="bg-foreground/3 rounded p-2">
         {PRIMARY_TYPE_OPTIONS.map(({ value, description }) => (
           <label
             key={value}
-            className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25"
+            className="hover:bg-foreground/3 flex cursor-pointer gap-2 rounded motion-safe:transition"
           >
             <input
               type="radio"
@@ -37,7 +37,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
           </label>
         ))}
 
-        <label className="flex cursor-pointer gap-2 rounded transition hover:bg-gray-700/25">
+        <label className="hover:bg-foreground/3 flex cursor-pointer gap-2 rounded motion-safe:transition">
           <input
             type="radio"
             name="commit_type"
@@ -61,10 +61,10 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
                 setLastSelectedOtherType(nextOtherType);
                 onChangeCommitType(nextOtherType);
               }}
-              className="w-full rounded bg-gray-700/25 p-2"
+              className="bg-foreground/3 w-full rounded p-2"
             >
               {OTHER_TYPE_OPTIONS.map(({ value, description }) => (
-                <option key={value} value={value} className="bg-gray-800">
+                <option key={value} value={value} className="bg-background text-foreground">
                   {`${value}: ${description}`}
                 </option>
               ))}

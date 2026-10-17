@@ -12,7 +12,7 @@ export default function BreakingChangeDescriptionInput({
       value={breakingChangeDescription}
       name="breaking_change_description"
       onChange={(event) => onChangeBreakingChangeDescription(event.target.value)}
-      className="w-full rounded bg-gray-700/25 p-2"
+      className="bg-foreground/3 w-full rounded p-2"
       rows={2}
       placeholder="Describe the breaking change"
     />

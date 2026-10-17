@@ -30,7 +30,7 @@ export default function CopyButton({ text }: Props) {
       <button
         type="button"
         onClick={() => void handleCopy()}
-        className={`inline-flex cursor-pointer items-center gap-1 rounded bg-linear-45 from-pink-500/75 to-orange-500/75 px-3 py-1.5 transition hover:from-pink-500 hover:to-orange-500 active:scale-95`}
+        className="inline-flex cursor-pointer items-center gap-1 rounded bg-linear-45 from-pink-500 to-orange-500 px-4 py-2 text-sm font-medium text-gray-100 motion-safe:transition motion-safe:active:translate-y-px"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

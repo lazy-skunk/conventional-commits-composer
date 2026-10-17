@@ -14,54 +14,57 @@ export function App() {
   const composer = useConventionalCommitsComposer();
 
   return (
-    <main className="mx-auto max-w-3xl px-4">
-      <h1 className="my-4 text-center text-xl font-black">Conventional Commits Composer</h1>
+    <div className="bg-background text-foreground min-h-screen">
+      <div className="mx-auto max-w-3xl space-y-4 p-4">
+        <header>
+          <h1 className="text-center text-xl font-black">
+            <a href="#">Conventional Commits Composer</a>
+          </h1>
+        </header>
+        <main className="space-y-4">
+          <div className="space-y-4">
+            <CommitTypeSelector
+              commitType={composer.commitType}
+              onChangeCommitType={composer.setCommitType}
+            />
 
-      <div className="space-y-4">
-        <div className="space-y-4">
-          <CommitTypeSelector
-            commitType={composer.commitType}
-            onChangeCommitType={composer.setCommitType}
-          />
+            <ScopeInput scope={composer.scope} onChangeScope={composer.setScope} />
 
-          <ScopeInput scope={composer.scope} onChangeScope={composer.setScope} />
+            <DescriptionInput
+              description={composer.description}
+              onChangeDescription={composer.setDescription}
+            />
 
-          <DescriptionInput
-            description={composer.description}
-            onChangeDescription={composer.setDescription}
-          />
+            <BodyInput body={composer.body} onChangeBody={composer.setBody} />
 
-          <BodyInput body={composer.body} onChangeBody={composer.setBody} />
+            <BreakingChangeStyleSelector
+              breakingChangeStyle={composer.breakingChangeStyle}
+              onChangeBreakingChangeStyle={composer.setBreakingChangeStyle}
+            >
+              {isBreakingChangeDescriptionRequired(composer.breakingChangeStyle) && (
+                <div className="mt-2">
+                  <BreakingChangeDescriptionInput
+                    breakingChangeDescription={composer.breakingChangeDescription}
+                    onChangeBreakingChangeDescription={composer.setBreakingChangeDescription}
+                  />
+                </div>
+              )}
+            </BreakingChangeStyleSelector>
 
-          <BreakingChangeStyleSelector
-            breakingChangeStyle={composer.breakingChangeStyle}
-            onChangeBreakingChangeStyle={composer.setBreakingChangeStyle}
-          >
-            {isBreakingChangeDescriptionRequired(composer.breakingChangeStyle) && (
-              <div className="mt-2">
-                <BreakingChangeDescriptionInput
-                  breakingChangeDescription={composer.breakingChangeDescription}
-                  onChangeBreakingChangeDescription={composer.setBreakingChangeDescription}
-                />
-              </div>
-            )}
-          </BreakingChangeStyleSelector>
+            <FooterInput
+              rows={composer.footerEditor.rows}
+              addRow={composer.footerEditor.addRow}
+              removeRow={composer.footerEditor.removeRow}
+              updateRow={composer.footerEditor.updateRow}
+            />
+          </div>
 
-          <FooterInput
-            rows={composer.footerEditor.rows}
-            addRow={composer.footerEditor.addRow}
-            removeRow={composer.footerEditor.removeRow}
-            updateRow={composer.footerEditor.updateRow}
-          />
-        </div>
-
-        <div className="space-y-4">
           <PreviewPanel commitMessage={composer.commitPreview}>
             <CopyButton text={composer.commitPreview} />
           </PreviewPanel>
 
-          <div>
-            <p>References</p>
+          <section>
+            <h2>References</h2>
             <ul className="list-inside list-disc">
               <li>
                 <a
@@ -74,9 +77,9 @@ export function App() {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
-    </main>
+    </div>
   );
 }
