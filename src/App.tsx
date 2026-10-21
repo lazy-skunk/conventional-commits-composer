@@ -17,7 +17,7 @@ export function App() {
     <div className="bg-background text-foreground min-h-screen">
       <div className="mx-auto max-w-3xl space-y-4 p-4">
         <header>
-          <h1 className="text-center text-xl font-black">
+          <h1 className="text-center text-lg font-semibold">
             <a href="#">Conventional Commits Composer</a>
           </h1>
         </header>

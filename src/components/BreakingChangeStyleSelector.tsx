@@ -13,7 +13,7 @@ export default function BreakingChangeStyleSelector({
 }: Props) {
   return (
     <fieldset>
-      <legend className="font-bold">Breaking Change</legend>
+      <legend className="text-sm font-medium">Breaking Change</legend>
 
       <div className="bg-foreground/3 rounded p-2">
         {BREAKING_CHANGE_OPTIONS.map((option) => (

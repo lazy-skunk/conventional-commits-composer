@@ -51,7 +51,7 @@ export default function CopyButton({ text }: Props) {
         <span>{currentCopyResult?.success ? "Copied" : "Copy"}</span>
       </button>
       {currentCopyResult?.success === false && (
-        <p className="text-red-500">Copy failed. Please copy the preview manually.</p>
+        <p className="text-sm text-red-500">Copy failed. Please copy the preview manually.</p>
       )}
     </div>
   );

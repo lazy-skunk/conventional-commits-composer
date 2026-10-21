@@ -6,7 +6,7 @@ type Props = {
 export default function ScopeInput({ scope, onChangeScope }: Props) {
   return (
     <div>
-      <label htmlFor="scope" className="font-bold">
+      <label htmlFor="scope" className="text-sm font-medium">
         Scope (optional)
       </label>
 

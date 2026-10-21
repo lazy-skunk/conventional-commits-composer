@@ -6,7 +6,7 @@ type Props = {
 export default function DescriptionInput({ description, onChangeDescription }: Props) {
   return (
     <div>
-      <label htmlFor="description" className="font-bold">
+      <label htmlFor="description" className="text-sm font-medium">
         Description
       </label>
 

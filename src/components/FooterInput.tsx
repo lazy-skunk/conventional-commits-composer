@@ -12,7 +12,7 @@ type Props = {
 export default function FooterInput({ rows, addRow, removeRow, updateRow }: Props) {
   return (
     <fieldset>
-      <legend className="font-bold">Footer (optional)</legend>
+      <legend className="text-sm font-medium">Footer (optional)</legend>
 
       <div className="bg-foreground/3 w-full space-y-2 rounded p-2">
         {rows.map((row) => (

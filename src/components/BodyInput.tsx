@@ -6,7 +6,7 @@ type Props = {
 export default function BodyInput({ body, onChangeBody }: Props) {
   return (
     <div>
-      <label htmlFor="body" className="font-bold">
+      <label htmlFor="body" className="text-sm font-medium">
         Body (optional)
       </label>
 

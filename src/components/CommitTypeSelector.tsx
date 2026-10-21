@@ -17,7 +17,7 @@ export default function CommitTypeSelector({ commitType, onChangeCommitType }: P
 
   return (
     <fieldset>
-      <legend className="font-bold">Type</legend>
+      <legend className="text-sm font-medium">Type</legend>
 
       <div className="bg-foreground/3 rounded p-2">
         {PRIMARY_TYPE_OPTIONS.map(({ value, description }) => (

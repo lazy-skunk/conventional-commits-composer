@@ -44,10 +44,10 @@ export default function FooterRowItem({ row, canRemove, onChangeRow, onRemoveRow
 
       {(tokenMissing || valueMissing || tokenInvalid) && (
         <div className="col-span-3">
-          {tokenMissing && <p className="text-red-500">Token is required</p>}
-          {valueMissing && <p className="text-red-500">Value is required</p>}
+          {tokenMissing && <p className="text-sm text-red-500">Token is required</p>}
+          {valueMissing && <p className="text-sm text-red-500">Value is required</p>}
           {tokenInvalid && (
-            <p className="text-red-500">
+            <p className="text-sm text-red-500">
               A footer’s token MUST use - in place of whitespace characters
             </p>
           )}
