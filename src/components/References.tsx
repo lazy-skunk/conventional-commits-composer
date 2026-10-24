@@ -5,7 +5,7 @@ type Props = {
 export function References({ links }: Props) {
   return (
     <section>
-      <h2 className="font-bold">References</h2>
+      <h2 className="text-sm font-medium">References</h2>
       <ul className="list-inside list-disc">
         {links.map(({ href, label }) => (
           <li key={href}>
