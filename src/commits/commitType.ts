@@ -1,9 +1,6 @@
-export const PRIMARY_TYPE_OPTIONS = [
-  { value: "feat", description: "A new feature" },
-  { value: "fix", description: "A bug fix" },
-] as const;
-
-export const OTHER_TYPE_OPTIONS = [
+export const COMMIT_TYPE_OPTIONS = [
+  { value: "feat", description: "introduces a new feature to the codebase" },
+  { value: "fix", description: "patches a bug in your codebase" },
   { value: "docs", description: "Documentation only changes" },
   {
     value: "style",
@@ -33,12 +30,8 @@ export const OTHER_TYPE_OPTIONS = [
   { value: "revert", description: "Reverts a previous commit" },
 ] as const;
 
-export const DEFAULT_OTHER_TYPE = OTHER_TYPE_OPTIONS[0].value;
+export type CommitType = string;
 
-export type PrimaryType = (typeof PRIMARY_TYPE_OPTIONS)[number]["value"];
-export type OtherType = (typeof OTHER_TYPE_OPTIONS)[number]["value"];
-export type CommitType = PrimaryType | OtherType;
-
-export function isOtherType(commitType: CommitType): commitType is OtherType {
-  return OTHER_TYPE_OPTIONS.some((option) => option.value === commitType);
+export function isCommitTypeInvalid(type: string): boolean {
+  return !/^[\p{L}\p{N}_-]+$/u.test(type.trim());
 }

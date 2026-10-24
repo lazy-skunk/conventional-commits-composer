@@ -1,0 +1,58 @@
+﻿Third-party notices
+
+----------------------------------------
+Conventional Branch
+
+Source: https://conventionalbranch.org/
+Project: Conventional Branch and its contributors
+Author: Xianpeng Shen
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changes: Excerpted and adapted for use in this project.
+
+----------------------------------------
+Conventional Commits 1.0.0
+
+Source: https://www.conventionalcommits.org/en/v1.0.0/
+Project: Conventional Commits contributors
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
+Changes: Excerpted and adapted for use in this project.
+
+----------------------------------------
+commitlint config-conventional
+
+Source: https://github.com/conventional-changelog/commitlint/blob/master/%40commitlint/config-conventional/src/index.ts
+Changes: Excerpted and adapted for use in this project.
+
+The MIT License (MIT)
+
+Copyright (c) 2016 - present Mario Nebl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+----------------------------------------
+Conventional Comments
+
+Source: https://conventionalcomments.org/
+Author: Paul Slaughter
+Copyright 2025 Paul Slaughter
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
+Changes: Excerpted and adapted for use in this project.

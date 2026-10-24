@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 import { copyToClipboard } from "../lib/clipboard";
 
-type Props = { text: string };
+type Props = { text: string; variant: "commits" | "comments" | "branch"; disabled?: boolean };
 
 const COPY_RESULT_DISPLAY_MILLISECONDS = 2000;
 
-export default function CopyButton({ text }: Props) {
+export function CopyButton({ text, variant, disabled = false }: Props) {
   const [copyResult, setCopyResult] = useState<{ text: string; success: boolean } | null>(null);
 
   useEffect(() => {
@@ -29,8 +29,9 @@ export default function CopyButton({ text }: Props) {
     <div className="flex flex-col items-end">
       <button
         type="button"
+        disabled={disabled}
         onClick={() => void handleCopy()}
-        className="inline-flex cursor-pointer items-center gap-1 rounded bg-linear-45 from-pink-500 to-orange-500 px-4 py-2 text-sm font-medium text-gray-100 motion-safe:transition motion-safe:active:translate-y-px"
+        className={`disabled:bg-foreground/3 disabled:text-foreground/50 inline-flex cursor-pointer items-center gap-1 rounded px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:bg-none disabled:active:translate-y-0 motion-safe:transition motion-safe:active:translate-y-px ${variant === "comments" ? "bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-100" : variant === "branch" ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100" : "bg-linear-45 from-pink-100 to-orange-100 text-pink-900 dark:from-pink-900 dark:to-orange-900 dark:text-pink-100"}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

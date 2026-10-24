@@ -3,9 +3,12 @@ import { describe, expect, it } from "vite-plus/test";
 import { isFooterTokenInvalid, serializeFooters } from "./footer";
 
 describe("isFooterTokenInvalid", () => {
-  it.each(["Reviewed by", "Co authored by"])("rejects whitespace in %s", (token) => {
-    expect(isFooterTokenInvalid(token)).toBe(true);
-  });
+  it.each(["Reviewed by", "Co authored by", "Reviewed-by:", "Refs#", "Refs/other"])(
+    "rejects invalid token %s",
+    (token) => {
+      expect(isFooterTokenInvalid(token)).toBe(true);
+    },
+  );
 
   it.each(["Reviewed-by", "BREAKING CHANGE", "BREAKING-CHANGE"])("accepts %s", (token) => {
     expect(isFooterTokenInvalid(token)).toBe(false);
@@ -13,6 +16,14 @@ describe("isFooterTokenInvalid", () => {
 });
 
 describe("serializeFooters", () => {
+  it("uses colon separators and preserves multiline values", () => {
+    expect(
+      serializeFooters([
+        { token: "Refs", value: "#123" },
+        { token: "BREAKING CHANGE", value: "new format\nMigration required." },
+      ]),
+    ).toBe("Refs: #123\nBREAKING CHANGE: new format\nMigration required.");
+  });
   it("trims and serializes valid entries", () => {
     expect(
       serializeFooters([

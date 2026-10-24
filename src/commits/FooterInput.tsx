@@ -1,6 +1,6 @@
-import type { FooterEditorRow } from "../hooks/useFooterEditor";
-import type { FooterEntry } from "../lib/footer";
-import FooterRowItem from "./FooterRowItem";
+import type { FooterEntry } from "./footer";
+import { FooterRowItem } from "./FooterRowItem";
+import type { FooterEditorRow } from "./useFooterEditor";
 
 type Props = {
   rows: FooterEditorRow[];
@@ -9,7 +9,7 @@ type Props = {
   updateRow: (rowId: string, updatedFields: Partial<FooterEntry>) => void;
 };
 
-export default function FooterInput({ rows, addRow, removeRow, updateRow }: Props) {
+export function FooterInput({ rows, addRow, removeRow, updateRow }: Props) {
   return (
     <fieldset>
       <legend className="text-sm font-medium">Footer (optional)</legend>

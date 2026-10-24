@@ -1,9 +1,15 @@
 import { useState } from "react";
 
-import { serializeFooters, type FooterEntry } from "../lib/footer";
-import { generateId } from "../lib/id";
+import { serializeFooters, type FooterEntry } from "./footer";
 
 export type FooterEditorRow = FooterEntry & { id: string };
+
+function generateId(): string {
+  const g = typeof globalThis !== "undefined" ? globalThis : undefined;
+  const uuid = g?.crypto?.randomUUID?.();
+  if (uuid) return uuid;
+  return Math.random().toString(36).slice(2, 10);
+}
 
 function createEmptyFooterRow(): FooterEditorRow {
   return { id: generateId(), token: "", value: "" };

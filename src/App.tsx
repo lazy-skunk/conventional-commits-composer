@@ -1,83 +1,46 @@
-import BodyInput from "./components/BodyInput";
-import BreakingChangeDescriptionInput from "./components/BreakingChangeDescriptionInput";
-import BreakingChangeStyleSelector from "./components/BreakingChangeStyleSelector";
-import CommitTypeSelector from "./components/CommitTypeSelector";
-import CopyButton from "./components/CopyButton";
-import DescriptionInput from "./components/DescriptionInput";
-import FooterInput from "./components/FooterInput";
-import PreviewPanel from "./components/PreviewPanel";
-import ScopeInput from "./components/ScopeInput";
-import { useConventionalCommitsComposer } from "./hooks/useConventionalCommitsComposer";
-import { isBreakingChangeDescriptionRequired } from "./lib/breakingChange";
+import { Link, Navigate, NavLink, useLocation } from "react-router";
+
+import { BranchComposer } from "./branch/BranchComposer";
+import { CommentsComposer } from "./comments/CommentsComposer";
+import { CommitsComposer } from "./commits/CommitsComposer";
 
 export function App() {
-  const composer = useConventionalCommitsComposer();
+  const { pathname } = useLocation();
+  if (!["/commits", "/comments", "/branch"].includes(pathname)) {
+    return <Navigate to="/commits" replace />;
+  }
 
   return (
     <div className="bg-background text-foreground min-h-screen">
       <div className="mx-auto max-w-3xl space-y-4 p-4">
-        <header>
+        <header className="space-y-4">
           <h1 className="text-center text-lg font-semibold">
-            <a href="#">Conventional Commits Composer</a>
+            <Link to="/commits">Conventional Git Composer</Link>
           </h1>
+          <nav className="flex flex-wrap justify-center gap-2">
+            {["Branch", "Commits", "Comments"].map((item) => (
+              <NavLink
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                className={({ isActive }) =>
+                  `rounded px-4 py-2 text-sm font-medium ${isActive ? "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100" : "bg-foreground/3"}`
+                }
+              >
+                {item}
+              </NavLink>
+            ))}
+          </nav>
         </header>
-        <main className="space-y-4">
-          <div className="space-y-4">
-            <CommitTypeSelector
-              commitType={composer.commitType}
-              onChangeCommitType={composer.setCommitType}
-            />
-
-            <ScopeInput scope={composer.scope} onChangeScope={composer.setScope} />
-
-            <DescriptionInput
-              description={composer.description}
-              onChangeDescription={composer.setDescription}
-            />
-
-            <BodyInput body={composer.body} onChangeBody={composer.setBody} />
-
-            <BreakingChangeStyleSelector
-              breakingChangeStyle={composer.breakingChangeStyle}
-              onChangeBreakingChangeStyle={composer.setBreakingChangeStyle}
-            >
-              {isBreakingChangeDescriptionRequired(composer.breakingChangeStyle) && (
-                <div className="mt-2">
-                  <BreakingChangeDescriptionInput
-                    breakingChangeDescription={composer.breakingChangeDescription}
-                    onChangeBreakingChangeDescription={composer.setBreakingChangeDescription}
-                  />
-                </div>
-              )}
-            </BreakingChangeStyleSelector>
-
-            <FooterInput
-              rows={composer.footerEditor.rows}
-              addRow={composer.footerEditor.addRow}
-              removeRow={composer.footerEditor.removeRow}
-              updateRow={composer.footerEditor.updateRow}
-            />
+        <main>
+          <div hidden={pathname !== "/commits"}>
+            <CommitsComposer />
           </div>
-
-          <PreviewPanel commitMessage={composer.commitPreview}>
-            <CopyButton text={composer.commitPreview} />
-          </PreviewPanel>
-
-          <section>
-            <h2>References</h2>
-            <ul className="list-inside list-disc">
-              <li>
-                <a
-                  href="https://www.conventionalcommits.org/en/v1.0.0/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-blue-500 visited:text-purple-500 hover:underline"
-                >
-                  Conventional Commits 1.0.0
-                </a>
-              </li>
-            </ul>
-          </section>
+          <div hidden={pathname !== "/comments"}>
+            <CommentsComposer />
+          </div>
+          <div hidden={pathname !== "/branch"}>
+            <BranchComposer />
+          </div>
         </main>
       </div>
     </div>

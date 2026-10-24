@@ -1,3 +1,3 @@
-# Conventional Commits Composer
+# Conventional Git Composer
 
-Compose, preview, and copy commit messages in the Conventional Commits format.
+A composer for Conventional Branch, Conventional Commits, and Conventional Comments.

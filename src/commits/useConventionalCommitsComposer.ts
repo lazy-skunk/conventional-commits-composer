@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-import type { BreakingChangeStyle } from "../lib/breakingChange";
-import type { CommitType } from "../lib/commitType";
-import { composeConventionalCommit } from "../lib/composeConventionalCommit";
+import { type BreakingChangeStyle } from "./breakingChange";
+import { type CommitType } from "./commitType";
+import { composeConventionalCommit } from "./composeConventionalCommit";
 import { useFooterEditor } from "./useFooterEditor";
+import { validateCommit } from "./validateCommit";
 
 export function useConventionalCommitsComposer() {
   const [commitType, setCommitType] = useState<CommitType>("feat");
@@ -13,6 +14,13 @@ export function useConventionalCommitsComposer() {
   const [breakingChangeStyle, setBreakingChangeStyle] = useState<BreakingChangeStyle>("none");
   const [breakingChangeDescription, setBreakingChangeDescription] = useState("");
   const footerEditor = useFooterEditor();
+  const validation = validateCommit({
+    commitType,
+    description,
+    breakingChangeStyle,
+    breakingChangeDescription,
+    footers: footerEditor.rows,
+  });
 
   const commitPreview = composeConventionalCommit({
     commitType,
@@ -40,5 +48,7 @@ export function useConventionalCommitsComposer() {
     setBreakingChangeStyle,
     setBreakingChangeDescription,
     commitPreview,
+    canCopy: validation.valid,
+    errors: validation.errors,
   };
 }

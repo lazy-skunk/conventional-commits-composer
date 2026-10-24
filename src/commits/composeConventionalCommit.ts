@@ -55,7 +55,7 @@ export function composeConventionalCommit({
   const normalizedFooter = trimOrEmpty(footer);
 
   const commitHeader = formatCommitHeader(
-    commitType,
+    commitType.trim(),
     breakingChangeStyle,
     normalizedScope,
     normalizedDescription,

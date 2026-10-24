@@ -4,7 +4,8 @@ import { defineConfig, lazyPlugins } from "vite-plus";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/conventional-commits-composer/",
+  base: "/conventional-git-composer/",
+  build: { license: { fileName: "license.md" } },
   fmt: { sortImports: {}, sortTailwindcss: {} },
   lint: {
     plugins: ["react", "typescript", "oxc"],
